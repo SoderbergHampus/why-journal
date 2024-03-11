@@ -1,0 +1,6 @@
+@import url('./constants.css');
+
+body {
+  background-color: var(--main-background-color);
+  color: var(--main-color);
+}
