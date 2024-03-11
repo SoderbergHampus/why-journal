@@ -1,6 +1,39 @@
 @import url('./constants.css');
+
+.main__heading {
+  margin-top: 70px;
+}
+
 .section {
   border: 1px solid var(--main-color);
   padding: 10px;
   margin: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-color);
+  color: var(--main-background-color);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  margin: 0px;
+}
+
+.navbar__title {
+  font-size: 2em;
+  margin: 10px 0px 10px 10px;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: var(--main-background-color);
+  padding: 10px;
+  margin: 10px;
+}
+
+.navbar__link:hover {
+  color: blue;
 }

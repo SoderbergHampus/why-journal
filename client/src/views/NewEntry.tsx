@@ -6,7 +6,9 @@ const NewEntry = () => {
   const parameters = ['sleep', 'diet', 'stress'];
   return (
     <>
-      <h1 data-testid='main-heading'>Journal your day</h1>
+      <h1 data-testid='main-heading' className='main__heading'>
+        Journal your day
+      </h1>
       <JournalIssueForm issue={issue} params={parameters} />
       <JournalEntryForm />
       <a href='/myResults'>
