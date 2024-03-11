@@ -1,0 +1,6 @@
+@import url('./constants.css');
+.section {
+  border: 1px solid var(--main-color);
+  padding: 10px;
+  margin: 20px;
+}
