@@ -27,7 +27,7 @@ export const generateMockData = (n: number) => {
     // Mock issueScore as weighted result of parameters
     let issueScore = 100;
     issueScore -=
-      params[0].score * 0.5 + params[1].score * 0.25 + params[2].score * 0.1;
+      params[0].score * 0.8 + params[1].score * 0.15 + params[2].score * 0.1;
     issueScore = Math.round(issueScore);
 
     const issue: TrackedData = { name: issueName, score: issueScore };

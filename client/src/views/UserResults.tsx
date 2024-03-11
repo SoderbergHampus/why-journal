@@ -1,3 +1,4 @@
+import LineGraph from '../components/LineGraph';
 import UserCalendar from '../components/UserCalendar';
 import { generateMockData } from '../dataMock';
 
@@ -11,6 +12,7 @@ const UserResults = () => {
         Your results
       </h1>
       <UserCalendar entries={userHistory} />
+      <LineGraph entries={userHistory} />
     </>
   );
 };
