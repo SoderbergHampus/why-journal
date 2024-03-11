@@ -1,4 +1,5 @@
 import './App.css';
+import JournalEntryForm from './components/JournalEntryForm';
 import JournalIssueForm from './components/JournalIssueForm';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <h1 data-testid='main-heading'>Why, Journal</h1>
       <JournalIssueForm issue={issue} params={parameters} />
+      <JournalEntryForm />
     </>
   );
 }
