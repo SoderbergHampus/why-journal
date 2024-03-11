@@ -27,7 +27,7 @@ const LineGraph = ({ entries }: LineGraphProps) => {
       y: issueScores,
       type: 'scatter',
       mode: 'lines+markers',
-      marker: { color: 'red' },
+      marker: { color: 'black' },
       name: 'Issue score',
     },
     {
@@ -51,8 +51,8 @@ const LineGraph = ({ entries }: LineGraphProps) => {
       y: stressScores,
       type: 'scatter',
       mode: 'lines+markers',
-      marker: { color: 'yellow' },
-      name: 'Yellow score',
+      marker: { color: 'red' },
+      name: 'Stress score',
     },
   ];
 
@@ -64,8 +64,10 @@ const LineGraph = ({ entries }: LineGraphProps) => {
 
   return (
     <>
-      <div>LineGraph</div>
-      <Plot data={plotData} layout={plotLayout}></Plot>
+      <section className='section line-graph__section'>
+        <h2>Issue and parameter graph:</h2>
+        <Plot data={plotData} layout={plotLayout}></Plot>
+      </section>
     </>
   );
 };
