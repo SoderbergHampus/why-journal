@@ -1,12 +1,17 @@
+import UserCalendar from '../components/UserCalendar';
 import { generateMockData } from '../dataMock';
 
 const UserResults = () => {
-  console.log(generateMockData(10));
+  // Mock fetching data
+  const userHistory = generateMockData(10);
 
   return (
-    <h1 data-testid='main-heading' className='main__heading'>
-      Your results
-    </h1>
+    <>
+      <h1 data-testid='main-heading' className='main__heading'>
+        Your results
+      </h1>
+      <UserCalendar entries={userHistory} />
+    </>
   );
 };
 

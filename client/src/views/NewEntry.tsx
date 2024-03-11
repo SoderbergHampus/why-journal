@@ -11,9 +11,6 @@ const NewEntry = () => {
       </h1>
       <JournalIssueForm issue={issue} params={parameters} />
       <JournalEntryForm />
-      <a href='/myResults'>
-        <button type='button'>Result view</button>
-      </a>
     </>
   );
 };

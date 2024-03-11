@@ -1,15 +1,5 @@
-// Define types
-type TrackedData = {
-  name: string;
-  score: number;
-};
-
-type DataResponse = {
-  date: string;
-  issue: TrackedData;
-  params: TrackedData[];
-  journalEntry: string;
-};
+import { Entry, TrackedData } from './types';
+import { v4 as uuid } from 'uuid';
 
 // Helper function for random
 const randomNumber = () => {
@@ -23,7 +13,7 @@ export const generateMockData = (n: number) => {
   const issueName = 'headache';
 
   const day = 1;
-  const listOfEntries: DataResponse[] = [];
+  const listOfEntries: Entry[] = [];
 
   // Loop through and mock n entries
   for (let i = 0; i < n; i++) {
@@ -51,7 +41,8 @@ export const generateMockData = (n: number) => {
     const journalEntry = `${date} | `.repeat(10);
 
     // Create object for mocked data and add it to result list
-    const entry: DataResponse = {
+    const entry: Entry = {
+      id: uuid(),
       date: date,
       issue: issue,
       params: params,
