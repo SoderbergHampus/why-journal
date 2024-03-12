@@ -1,9 +1,13 @@
 services:
   postgres:
     image: 'postgres:latest'
+    container_name: 'why-journal-container'
     environment:
-      - 'POSTGRES_DB=mydatabase'
+      - 'POSTGRES_DB=whyJournal'
       - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      - 'POSTGRES_USER=user'
+    volumes:
+      - ./data/pgdata:/var/lib/postgresql/data
     ports:
-      - '5432'
+      - 5432:5432
+    restart: always

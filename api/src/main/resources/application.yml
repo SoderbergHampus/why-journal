@@ -1,0 +1,33 @@
+debug: true
+server:
+  port: 3000
+
+spring:
+  application:
+    name: api
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/whyJournal
+
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+
+  sql:
+    init:
+      platform: postgresql
+      mode: always
+
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
