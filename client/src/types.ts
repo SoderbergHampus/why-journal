@@ -4,7 +4,7 @@ export type TrackedData = {
 };
 
 export type Entry = {
-  id: string;
+  id?: string;
   date: string;
   issue: TrackedData;
   params: TrackedData[];

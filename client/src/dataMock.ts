@@ -86,7 +86,7 @@ export const mockFetchHistory = (): Promise<Response> => {
  */
 export const mockPostEntry = (entry: Entry): Promise<Response> => {
   let mockedResponse: Response;
-  entry.journalEntry === 'failedPost'
+  entry.journalEntry !== 'failedPost'
     ? (mockedResponse = new Response(JSON.stringify(entry), { status: 201 }))
     : (mockedResponse = new Response('Failed to create entry', {
         status: 404,
