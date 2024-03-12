@@ -18,4 +18,9 @@ public class WhyJournalService {
     public List<Entry> getEntries() {
         return entryRepo.findAll();
     }
+
+    public Entry getEntry(int id) {
+        return entryRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Entry id not found"));
+    }
 }

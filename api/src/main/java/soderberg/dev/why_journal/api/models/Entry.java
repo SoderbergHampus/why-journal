@@ -2,6 +2,7 @@ package soderberg.dev.why_journal.api.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -71,16 +72,19 @@ public class Entry {
         this.issueScore = issueScore;
     }
 
-    public String getParameters() {
-        return parameters;
+    public List<String> getParameters() {
+        return List.of(parameters.split(","));
     }
 
     public void setParameters(String parameters) {
         this.parameters = parameters;
     }
 
-    public String getParameterScores() {
-        return parameterScores;
+    public List<Integer> getParameterScores() {
+        List<String> listScores = List.of(parameterScores.split(","));
+        return listScores.stream()
+                .map(Integer::parseInt)
+                .toList();
     }
 
     public void setParameterScores(String parameterScores) {
