@@ -3,14 +3,14 @@ package soderberg.dev.why_journal.api.models;
 import jakarta.persistence.*;
 
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
-public class JournalEntry {
+@Table(name = "entry")
+public class Entry {
     // Fields
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column
     private String date;
@@ -28,13 +28,13 @@ public class JournalEntry {
     private String parameterScores;
 
     // Constructors
-    public JournalEntry() {}
+    public Entry() {}
 
-    public JournalEntry(String date,
-                        String issue,
-                        int issueScore,
-                        String parameters,
-                        String parameterScores) {
+    public Entry(String date,
+                 String issue,
+                 int issueScore,
+                 String parameters,
+                 String parameterScores) {
         this.date = date;
         this.issue = issue;
         this.issueScore = issueScore;
@@ -43,7 +43,7 @@ public class JournalEntry {
     }
 
     // Getters & Setters
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
@@ -95,12 +95,12 @@ public class JournalEntry {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        JournalEntry journalEntry = (JournalEntry) o;
-        return issueScore == journalEntry.issueScore && Objects.equals(id, journalEntry.id) &&
-                Objects.equals(date, journalEntry.date) &&
-                Objects.equals(issue, journalEntry.issue) &&
-                Objects.equals(parameters, journalEntry.parameters) &&
-                Objects.equals(parameterScores, journalEntry.parameterScores);
+        Entry entry = (Entry) o;
+        return issueScore == entry.issueScore && Objects.equals(id, entry.id) &&
+                Objects.equals(date, entry.date) &&
+                Objects.equals(issue, entry.issue) &&
+                Objects.equals(parameters, entry.parameters) &&
+                Objects.equals(parameterScores, entry.parameterScores);
     }
 
     @Override
