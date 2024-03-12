@@ -69,13 +69,33 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
 export const mockFetchHistory = (): Promise<Response> => {
   const userHistory = generateMockData(10, [0.7, 0.2, 0.1]);
   const mockedResponse = new Response(JSON.stringify(userHistory));
-  const mockedFetch = new Promise<Response>((resolve, reject) => {
+
+  return new Promise<Response>((resolve, reject) => {
     if (userHistory !== undefined) {
       resolve(mockedResponse);
-    } else {
-      reject(new Error('Mocked fetch failed'));
     }
+    reject(new Error('Mocked fetch failed'));
   });
+};
 
-  return mockedFetch;
+/**
+ * Function that mocks the response of a POST fetch of a new entry
+ * @param entry The entry to post. If entry.journalEntry equals 'failedpost',
+ * the function will mock a failed post.
+ * @returns A promise containing the mocked response
+ */
+export const mockPostEntry = (entry: Entry): Promise<Response> => {
+  let mockedResponse: Response;
+  entry.journalEntry === 'failedPost'
+    ? (mockedResponse = new Response(JSON.stringify(entry), { status: 201 }))
+    : (mockedResponse = new Response('Failed to create entry', {
+        status: 404,
+      }));
+
+  return new Promise<Response>((resolve, reject) => {
+    if (mockedResponse.status === 201) {
+      resolve(mockedResponse);
+    }
+    reject(mockedResponse);
+  });
 };
