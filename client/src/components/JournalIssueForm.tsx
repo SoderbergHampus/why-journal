@@ -2,17 +2,12 @@ import { FormEvent, useEffect, useState } from 'react';
 import { Entry } from '../types';
 import { mockPostEntry } from '../dataMock';
 
-// type JournalIssueFormProps = {
-//   issue: string;
-//   params: string[];
-// };
-
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
   target: {
-    headacheInput: { value: number };
-    sleepInput: { value: number };
-    dietInput: { value: number };
-    stressInput: { value: number };
+    headacheInput: { value: string };
+    sleepInput: { value: string };
+    dietInput: { value: string };
+    stressInput: { value: string };
     journalEntry: { value: string };
   };
 };
@@ -40,34 +35,80 @@ const getCurrentDate = (): string => {
  */
 const JournalIssueForm = () => {
   const [entry, setEntry] = useState<Entry | undefined>();
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitMessage, setSubmitMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
     if (entry !== undefined) {
       mockPostEntry(entry)
         .then((response) => {
           if (response.status === 201) {
-            setSubmitMessage('Your daily journal has been submitted!');
+            setSubmitMsg('Your daily journal has been submitted!');
+            setErrorMsg('');
           } else if (response.status === 404) {
-            setSubmitMessage(
+            setErrorMsg(
               'Error when submitting message, incorrect submit input'
             );
+            setSubmitMsg('');
           }
         })
-        .catch(() => setSubmitMessage('Unknown error when submitting'));
+        .catch(() => {
+          setErrorMsg('Unknown error when submitting');
+          setSubmitMsg('');
+        });
     }
   }, [entry]);
 
   const handleSubmit = (e: JournalIssueFormEvent) => {
     e.preventDefault();
 
+    // Validation and conversation to number
+    const errorMsg = 'Invalid input scores';
+    const headacheScoreString = e.target.headacheInput.value;
+    const sleepScoreString = e.target.sleepInput.value;
+    const dietScoreString = e.target.dietInput.value;
+    const stressScoreString = e.target.stressInput.value;
+
+    if (
+      isNaN(parseInt(headacheScoreString)) ||
+      isNaN(parseInt(sleepScoreString)) ||
+      isNaN(parseInt(dietScoreString)) ||
+      isNaN(parseInt(stressScoreString))
+    ) {
+      setErrorMsg(errorMsg);
+      setSubmitMsg('');
+      setEntry(undefined);
+      return;
+    }
+
+    const headacheScore = +headacheScoreString;
+    const sleepScore = +sleepScoreString;
+    const dietScore = +dietScoreString;
+    const stressScore = +stressScoreString;
+
+    if (
+      headacheScore < 1 ||
+      headacheScore > 100 ||
+      sleepScore < 1 ||
+      sleepScore > 100 ||
+      dietScore < 1 ||
+      dietScore > 100 ||
+      stressScore < 1 ||
+      stressScore > 100
+    ) {
+      setErrorMsg(errorMsg);
+      setSubmitMsg('');
+      setEntry(undefined);
+      return;
+    }
+
     setEntry({
       date: getCurrentDate(),
-      issue: { name: 'headache', score: e.target.headacheInput.value },
+      issue: { name: 'headache', score: headacheScore },
       params: [
-        { name: 'sleep', score: e.target.sleepInput.value },
-        { name: 'diet', score: e.target.dietInput.value },
-        { name: 'stress', score: e.target.stressInput.value },
+        { name: 'sleep', score: sleepScore },
+        { name: 'diet', score: dietScore },
+        { name: 'stress', score: stressScore },
       ],
       journalEntry: e.target.journalEntry.value,
     });
@@ -111,8 +152,10 @@ const JournalIssueForm = () => {
         <hr />
         <button type='submit'>Submit</button>
       </form>
-      {submitMessage !== '' && (
+      {submitMessage !== '' ? (
         <h3 className='submit-msg entry-form__submit-msg'>{submitMessage}</h3>
+      ) : (
+        <h3 className='error-msg entry-form__error-msg'>{errorMsg}</h3>
       )}
     </section>
   );

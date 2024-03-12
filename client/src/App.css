@@ -37,3 +37,7 @@
 .navbar__link:hover {
   color: blue;
 }
+
+.error-msg {
+  color: red;
+}
