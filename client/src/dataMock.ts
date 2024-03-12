@@ -6,8 +6,13 @@ const randomNumber = () => {
   return Math.floor(Math.random() * 100 + 1);
 };
 
-// Mock n data entries
-export const generateMockData = (n: number, weights: number[]) => {
+/**
+ * Function to generate mock data for user history
+ * @param n The number of entries to mock.
+ * @param weights Weights for generating issue score
+ * @returns List of n Entry objects.
+ */
+export const generateMockData = (n: number, weights: number[]): Entry[] => {
   // Define some constants
   const paramNames = ['sleep', 'diet', 'stress'];
   const issueName = 'headache';
@@ -55,4 +60,22 @@ export const generateMockData = (n: number, weights: number[]) => {
   }
 
   return listOfEntries;
+};
+
+/**
+ * Function that mocks a fetch of user history from api
+ * @returns Promise containing a response of mocked data.
+ */
+export const mockFetchHistory = (): Promise<Response> => {
+  const userHistory = generateMockData(10, [0.7, 0.2, 0.1]);
+  const mockedResponse = new Response(JSON.stringify(userHistory));
+  const mockedFetch = new Promise<Response>((resolve, reject) => {
+    if (userHistory !== undefined) {
+      resolve(mockedResponse);
+    } else {
+      reject(new Error('Mocked fetch failed'));
+    }
+  });
+
+  return mockedFetch;
 };

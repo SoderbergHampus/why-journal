@@ -1,10 +1,18 @@
+import { useEffect, useState } from 'react';
 import LineGraph from '../components/LineGraph';
 import UserCalendar from '../components/UserCalendar';
-import { generateMockData } from '../dataMock';
+import { mockFetchHistory } from '../dataMock';
+import { Entry } from '../types';
 
 const UserResults = () => {
   // Mock fetching data
-  const userHistory = generateMockData(10, [0.7, 0.2, 0.1]);
+  const [userHistory, setUserHistory] = useState<Entry[]>([]);
+
+  useEffect(() => {
+    mockFetchHistory()
+      .then((response) => response.json())
+      .then((data) => setUserHistory(data));
+  }, []);
 
   return (
     <>

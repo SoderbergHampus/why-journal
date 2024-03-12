@@ -10,3 +10,5 @@ export type Entry = {
   params: TrackedData[];
   journalEntry: string;
 };
+
+export type MockedHistoryFetch = Promise<Response>;
