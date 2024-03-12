@@ -4,7 +4,7 @@ import { generateMockData } from '../dataMock';
 
 const UserResults = () => {
   // Mock fetching data
-  const userHistory = generateMockData(10);
+  const userHistory = generateMockData(10, [0.7, 0.2, 0.1]);
 
   return (
     <>
