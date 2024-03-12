@@ -20,4 +20,15 @@ public record EntryDTO(int id,
         );
     }
 
+    public static Entry toEntry(EntryDTO dto) {
+        Entry entry = new Entry();
+        entry.setDate(dto.date());
+        entry.setIssue(dto.issue());
+        entry.setIssueScore(dto.issueScore());
+        entry.setParameters(dto.parameters);
+        entry.setParameterScores(dto.parameterScores);
+
+        return entry;
+    }
+
 }

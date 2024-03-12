@@ -76,8 +76,8 @@ public class Entry {
         return List.of(parameters.split(","));
     }
 
-    public void setParameters(String parameters) {
-        this.parameters = parameters;
+    public void setParameters(List<String> parameters) {
+        this.parameters = String.join(",", parameters);
     }
 
     public List<Integer> getParameterScores() {
@@ -87,8 +87,11 @@ public class Entry {
                 .toList();
     }
 
-    public void setParameterScores(String parameterScores) {
-        this.parameterScores = parameterScores;
+    public void setParameterScores(List<Integer> parameterScores) {
+        List<String> stringList = parameterScores.stream()
+                .map(String::valueOf)
+                .toList();
+        this.parameterScores = String.join(",", stringList);
     }
 
     // Equals, hash, toString
