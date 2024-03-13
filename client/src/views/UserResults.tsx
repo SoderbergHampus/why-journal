@@ -5,7 +5,7 @@ import { Entry } from '../types';
 import Navbar from '../components/Navbar';
 
 const UserResults = () => {
-  const [entries, setEntries] = useState<Entry[]>([]);
+  const [entries, setEntries] = useState<Entry[]>();
 
   useEffect(() => {
     fetch('http://localhost:3000/api/journalEntries')

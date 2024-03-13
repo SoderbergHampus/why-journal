@@ -20,6 +20,7 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
   const listOfEntries: Entry[] = [];
 
   // Loop through and mock n entries
+  let maxIssueScore = 0;
   for (let i = 0; i < n; i++) {
     // Mock parameters randomly
     const params: TrackedData[] = [];
@@ -29,16 +30,14 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
     }
 
     // Mock issueScore as weighted result of parameters
-    let issueScore =
+    const issueScore =
       params[0].score * weights[0] +
       params[1].score * weights[1] +
       params[2].score * weights[2];
-    issueScore = Math.round(issueScore);
+    // issueScore = Math.round(issueScore);
 
-    if (issueScore < 1) {
-      issueScore = 1;
-    } else if (issueScore > 100) {
-      issueScore = 100;
+    if (issueScore > maxIssueScore) {
+      maxIssueScore = issueScore;
     }
 
     const issue: TrackedData = { name: issueName, score: issueScore };
@@ -71,6 +70,13 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
 
     listOfEntries.push(entry);
   }
+
+  listOfEntries.map(
+    (entry) =>
+      (entry.issue.score = Math.round(
+        (entry.issue.score / maxIssueScore) * 100
+      ))
+  );
 
   return listOfEntries;
 };
