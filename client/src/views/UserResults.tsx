@@ -8,8 +8,6 @@ const UserResults = () => {
   const [userHistory, setUserHistory] = useState<Entry[]>([]);
 
   useEffect(() => {
-    console.log('I am here');
-
     fetch('http://localhost:3000/api/journalEntries')
       .then((response) => response.json())
       .then((data: Entry[]) => {
