@@ -1,4 +1,4 @@
-import { addEntryToApi, getCurrentDate } from './api';
+import { addEntryToApi } from './api';
 import { Entry, TrackedData } from './types';
 // import { v4 as uuid } from 'uuid';
 
@@ -30,8 +30,8 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
     }
 
     // Mock issueScore as weighted result of parameters
-    let issueScore = 100;
-    issueScore -=
+    // let issueScore = 100;
+    let issueScore =
       params[0].score * weights[0] +
       params[1].score * weights[1] +
       params[2].score * weights[2];
@@ -42,6 +42,7 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
     // Mock date
     const dateNow = new Date();
     dateNow.setDate(dateNow.getDate() - i);
+    // console.log('Initial: ', dateNow);
 
     let dd: number | string = dateNow.getDate();
     dd < 10 ? (dd = '0' + dd) : (dd = '' + dd);
@@ -52,6 +53,7 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
     const yyyy = dateNow.getFullYear().toString();
 
     const date = `${yyyy}-${mm}-${dd}`;
+    // console.log('Final: ', date);
 
     // let date;
     // day + i < 10 ? (date = `0${day + i}`) : (date = '' + (day + i));
@@ -71,6 +73,7 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
 
     listOfEntries.push(entry);
   }
+  // console.log(listOfEntries);
 
   return listOfEntries;
 };
@@ -115,6 +118,7 @@ export const mockPostEntry = (entry: Entry): Promise<Response> => {
 
 export const mockToApi = (n: number, weights: number[]) => {
   const entries = generateMockData(n, weights);
+  console.log(entries);
 
   entries.forEach((entry) => addEntryToApi(entry));
 };

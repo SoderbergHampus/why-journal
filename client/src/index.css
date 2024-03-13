@@ -32,6 +32,18 @@
   .button:hover {
     @apply bg-gray-medium;
   }
+
+  .mock-input {
+    @apply h-10 mr-5;
+  }
+
+  .n {
+    @apply w-14;
+  }
+
+  .weights {
+    @apply w-28;
+  }
 }
 
 @layer components {

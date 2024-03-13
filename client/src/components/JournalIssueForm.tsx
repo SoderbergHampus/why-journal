@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from 'react';
 import { Entry, SliderInputs } from '../types';
 import SliderInput from './SliderInput';
 import { addEntryToApi, getCurrentDate } from '../api';
+import { mockToApi } from '../dataMock';
 
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
   target: {
@@ -10,6 +11,13 @@ type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
     dietInput: { value: string };
     stressInput: { value: string };
     journalEntry: { value: string };
+  };
+};
+
+type FormEventMock = FormEvent<HTMLFormElement> & {
+  target: {
+    n: { value: number };
+    weights: { value: string };
   };
 };
 
@@ -24,6 +32,14 @@ const JournalIssueForm = () => {
   const [sliderInputs, setSliderInputs] = useState<SliderInputs>({
     values: [10, 10, 10, 10],
   });
+
+  const handleMock = (e: FormEventMock) => {
+    e.preventDefault();
+
+    const weights: number[] = e.target.weights.value.split(',').map((w) => +w);
+    const n: number = e.target.n.value;
+    mockToApi(n, weights);
+  };
 
   useEffect(() => {
     if (entry !== undefined) {
@@ -121,6 +137,28 @@ const JournalIssueForm = () => {
         </button>
       </form>
       {submitMessage !== '' ? <h3>{submitMessage}</h3> : <h3>{errorMsg}</h3>}
+
+      <hr />
+      <h2>Mock data</h2>
+      <form onSubmit={handleMock} className='flex gap-5'>
+        <label>n</label>
+        <input
+          type='number'
+          className='mock-input n'
+          id='n'
+          defaultValue={'5'}
+        />
+        <label>weights</label>
+        <input
+          id='weights'
+          type='text'
+          className='mock-input weights'
+          defaultValue={'0.8,0.4,0.2'}
+        />
+        <button className='button' type='submit'>
+          Mock data
+        </button>
+      </form>
     </section>
   );
 };
