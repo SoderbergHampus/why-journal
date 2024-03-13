@@ -130,20 +130,16 @@ const JournalIssueForm = () => {
         <label htmlFor='headacheInput'>Headache</label>
         <input type='text' id='headacheInput' />
 
-        <hr />
         <h3>Parameters:</h3>
         <label htmlFor='sleepInput'>Sleep</label>
         <input type='text' id='sleepInput' />
 
-        <hr />
         <label htmlFor='dietInput'>Diet</label>
         <input type='text' id='dietInput' />
 
-        <hr />
         <label htmlFor='stressInput'>Stress</label>
         <input type='text' id='stressInput' />
 
-        <hr />
         <h2>(Optional) Add a journal entry: </h2>
         <label htmlFor='journalEntry'></label>
         <textarea
@@ -154,7 +150,6 @@ const JournalIssueForm = () => {
           rows={15}
         ></textarea>
 
-        <hr />
         <button type='submit'>Submit</button>
       </form>
       {submitMessage !== '' ? (

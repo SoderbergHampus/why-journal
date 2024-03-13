@@ -1,5 +1,4 @@
 import { Entry } from '../types';
-import './UserCalendar.css';
 
 type UserCalendarProps = {
   entries: Entry[];

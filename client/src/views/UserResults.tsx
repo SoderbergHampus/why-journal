@@ -18,9 +18,7 @@ const UserResults = () => {
 
   return (
     <>
-      <h1 data-testid='main-heading' className='main__heading'>
-        Your results
-      </h1>
+      <h1 data-testid='main-heading'>Your results</h1>
       <UserCalendar entries={userHistory} />
       <LineGraph entries={userHistory} />
     </>
