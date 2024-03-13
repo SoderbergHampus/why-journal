@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import LineGraph from '../components/LineGraph';
 import UserCalendar from '../components/UserCalendar';
-import { mockFetchHistory } from '../dataMock';
 import { Entry } from '../types';
 
 const UserResults = () => {
@@ -9,10 +8,15 @@ const UserResults = () => {
   const [userHistory, setUserHistory] = useState<Entry[]>([]);
 
   useEffect(() => {
-    mockFetchHistory()
+    fetch('http://localhost:3000/api/journalEntries')
       .then((response) => response.json())
-      .then((data) => setUserHistory(data));
+      .then((data: Entry[]) => {
+        setUserHistory(data);
+      })
+      .catch(() => console.log('Error when fetching'));
   }, []);
+
+  console.log('user history: ', userHistory);
 
   return (
     <>

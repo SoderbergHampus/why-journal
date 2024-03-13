@@ -16,9 +16,9 @@ const LineGraph = ({ entries }: LineGraphProps) => {
   const stressScores: number[] = [];
   entries.forEach((entry) => {
     issueScores.push(entry.issue.score);
-    sleepScores.push(entry.params[0].score);
-    dietScores.push(entry.params[1].score);
-    stressScores.push(entry.params[2].score);
+    sleepScores.push(entry.parameters[0].score);
+    dietScores.push(entry.parameters[1].score);
+    stressScores.push(entry.parameters[2].score);
   });
 
   const plotData: Data[] = [

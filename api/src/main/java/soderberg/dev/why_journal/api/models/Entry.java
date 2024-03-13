@@ -28,6 +28,9 @@ public class Entry {
     @Column(name = "parameter_scores")
     private String parameterScores;
 
+    @Column(name = "journal_entry")
+    private String journalEntry;
+
     // Constructors
     public Entry() {}
 
@@ -35,12 +38,14 @@ public class Entry {
                  String issue,
                  int issueScore,
                  String parameters,
-                 String parameterScores) {
+                 String parameterScores,
+                 String journalEntry) {
         this.date = date;
         this.issue = issue;
         this.issueScore = issueScore;
         this.parameters = parameters;
         this.parameterScores = parameterScores;
+        this.journalEntry = journalEntry;
     }
 
     // Getters & Setters
@@ -94,6 +99,14 @@ public class Entry {
         this.parameterScores = String.join(",", stringList);
     }
 
+    public String getJournalEntry() {
+        return journalEntry;
+    }
+
+    public void setJournalEntry(String journalEntry) {
+        this.journalEntry = journalEntry;
+    }
+
     // Equals, hash, toString
 
     @Override
@@ -103,16 +116,17 @@ public class Entry {
         if (o == null || getClass() != o.getClass())
             return false;
         Entry entry = (Entry) o;
-        return issueScore == entry.issueScore && Objects.equals(id, entry.id) &&
+        return id == entry.id && issueScore == entry.issueScore &&
                 Objects.equals(date, entry.date) &&
                 Objects.equals(issue, entry.issue) &&
                 Objects.equals(parameters, entry.parameters) &&
-                Objects.equals(parameterScores, entry.parameterScores);
+                Objects.equals(parameterScores, entry.parameterScores) &&
+                Objects.equals(journalEntry, entry.journalEntry);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, issue, issueScore, parameters, parameterScores);
+        return Objects.hash(id, date, issue, issueScore, parameters, parameterScores, journalEntry);
     }
 
     @Override
@@ -124,6 +138,7 @@ public class Entry {
                 ", issueScore=" + issueScore +
                 ", parameters='" + parameters + '\'' +
                 ", parameterScores='" + parameterScores + '\'' +
+                ", journalEntry='" + journalEntry + '\'' +
                 '}';
     }
 }

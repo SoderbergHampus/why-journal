@@ -1,5 +1,5 @@
 import { Entry, TrackedData } from './types';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 
 // Helper function for random
 const randomNumber = () => {
@@ -45,14 +45,14 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
     date = '2024-03-' + date;
 
     // Mock journalentry
-    const journalEntry = `${date} | `.repeat(10);
+    const journalEntry = `Journal ${i + 1}`;
 
     // Create object for mocked data and add it to result list
     const entry: Entry = {
-      id: uuid(),
+      id: i,
       date: date,
       issue: issue,
-      params: params,
+      parameters: params,
       journalEntry: journalEntry,
     };
 
@@ -67,7 +67,7 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
  * @returns Promise containing a response of mocked data.
  */
 export const mockFetchHistory = (): Promise<Response> => {
-  const userHistory = generateMockData(10, [0.7, 0.2, 0.1]);
+  const userHistory = generateMockData(3, [0.7, 0.2, 0.1]);
   const mockedResponse = new Response(JSON.stringify(userHistory));
 
   return new Promise<Response>((resolve, reject) => {

@@ -4,9 +4,9 @@ export type TrackedData = {
 };
 
 export type Entry = {
-  id?: string;
+  id?: number;
   date: string;
   issue: TrackedData;
-  params: TrackedData[];
-  journalEntry: string;
+  parameters: TrackedData[];
+  journalEntry?: string;
 };

@@ -105,7 +105,7 @@ const JournalIssueForm = () => {
     setEntry({
       date: getCurrentDate(),
       issue: { name: 'headache', score: headacheScore },
-      params: [
+      parameters: [
         { name: 'sleep', score: sleepScore },
         { name: 'diet', score: dietScore },
         { name: 'stress', score: stressScore },

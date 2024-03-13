@@ -12,11 +12,11 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
         <h2>Calendar Entries:</h2>
         <ul className='ul calendar__ul'>
           {entries.map((entry) => (
-            <li key={entry.id}>
+            <li key={entry.date}>
               {entry.date} | {entry.issue.name}: {entry.issue.score} {' | '}
-              {entry.params[0].name}: {entry.params[0].score} {', '}
-              {entry.params[1].name}: {entry.params[1].score} {', '}
-              {entry.params[2].name}: {entry.params[2].score}
+              {entry.parameters[0].name}: {entry.parameters[0].score} {', '}
+              {entry.parameters[1].name}: {entry.parameters[1].score} {', '}
+              {entry.parameters[2].name}: {entry.parameters[2].score}
             </li>
           ))}
         </ul>

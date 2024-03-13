@@ -6,5 +6,6 @@ public record EntryRequestDTO(String date,
                               String issue,
                               int issueScore,
                               List<String> parameters,
-                              List<Integer> parameterScores) {
+                              List<Integer> parameterScores,
+                              String journal_entry) {
 }
