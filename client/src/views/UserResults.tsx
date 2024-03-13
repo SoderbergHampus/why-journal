@@ -5,13 +5,13 @@ import { Entry } from '../types';
 import Navbar from '../components/Navbar';
 
 const UserResults = () => {
-  const [userHistory, setUserHistory] = useState<Entry[]>([]);
+  const [entries, setEntries] = useState<Entry[]>([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/api/journalEntries')
       .then((response) => response.json())
       .then((data: Entry[]) => {
-        setUserHistory(data);
+        setEntries(data);
       })
       .catch(() => console.log('Error when fetching'));
   }, []);
@@ -21,8 +21,8 @@ const UserResults = () => {
       <Navbar selected='results' />
       <h1 data-testid='main-heading'>Your results</h1>
       <section className='grid grid-cols-12'>
-        <UserCalendar entries={userHistory} />
-        <LineGraph entries={userHistory} />
+        <UserCalendar entries={entries} />
+        <LineGraph entries={entries} />
       </section>
     </>
   );
