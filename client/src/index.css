@@ -4,10 +4,20 @@
 
 @layer base {
   h1 {
-    @apply text-4xl font-bold p-6;
+    @apply text-4xl font-bold p-4;
   }
-
+  h2 {
+    @apply text-2xl font-semibold py-2;
+  }
+  h3 {
+    @apply text-xl font-medium py-4;
+  }
   nav a {
     @apply rounded px-4 py-2 hover:bg-gray-400;
+  }
+
+  input,
+  textarea {
+    @apply rounded bg-gray-200 px-2;
   }
 }

@@ -121,39 +121,49 @@ const JournalIssueForm = () => {
 
   console.log(entry);
 
+  const inputContainerClass = 'flex gap-3 py-2 justify-between';
   return (
-    <section className=''>
-      JournalIssueForm
+    <section className='col-span-4 col-start-2'>
       <h2>Input your daily scores:</h2>
       <form onSubmit={handleSubmit}>
         <h3>Main issue:</h3>
-        <label htmlFor='headacheInput'>Headache</label>
-        <input type='text' id='headacheInput' />
+        <div className={inputContainerClass}>
+          <label htmlFor='headacheInput'>Headache:</label>
+          <input type='text' id='headacheInput' />
+        </div>
 
         <h3>Parameters:</h3>
-        <label htmlFor='sleepInput'>Sleep</label>
-        <input type='text' id='sleepInput' />
+        <div className={inputContainerClass}>
+          <label htmlFor='sleepInput'>Sleep:</label>
+          <input type='text' id='sleepInput' />
+        </div>
 
-        <label htmlFor='dietInput'>Diet</label>
-        <input type='text' id='dietInput' />
+        <div className={inputContainerClass}>
+          <label htmlFor='dietInput'>Diet:</label>
+          <input type='text' id='dietInput' />
+        </div>
 
-        <label htmlFor='stressInput'>Stress</label>
-        <input type='text' id='stressInput' />
+        <div className={inputContainerClass}>
+          <label htmlFor='stressInput'>Stress:</label>
+          <input type='text' id='stressInput' />
+        </div>
 
-        <h2>(Optional) Add a journal entry: </h2>
-        <label htmlFor='journalEntry'></label>
-        <textarea
-          name=''
-          id='journalEntry'
-          defaultValue={''}
-          cols={50}
-          rows={15}
-        ></textarea>
+        <div className='flex-col'>
+          <h2>(Optional) Add a journal entry: </h2>
+          <label htmlFor='journalEntry'></label>
+          <textarea
+            name=''
+            id='journalEntry'
+            defaultValue={''}
+            cols={50}
+            rows={15}
+          ></textarea>
+        </div>
 
         <button type='submit'>Submit</button>
       </form>
       {submitMessage !== '' ? (
-        <h3 className=''>{submitMessage}</h3>
+        <h3>{submitMessage}</h3>
       ) : (
         <h3 className=''>{errorMsg}</h3>
       )}
