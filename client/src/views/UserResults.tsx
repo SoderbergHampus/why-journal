@@ -16,8 +16,6 @@ const UserResults = () => {
       .catch(() => console.log('Error when fetching'));
   }, []);
 
-  console.log('user history: ', userHistory);
-
   return (
     <>
       <h1 data-testid='main-heading' className='main__heading'>
