@@ -21,7 +21,7 @@ spring:
   sql:
     init:
       platform: postgresql
-      mode: always
+      mode: never
 
   output:
     ansi:
