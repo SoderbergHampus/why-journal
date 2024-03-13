@@ -20,4 +20,8 @@
   textarea {
     @apply rounded bg-gray-200 px-2;
   }
+
+  button {
+    @apply rounded border p-2;
+  }
 }
