@@ -20,8 +20,10 @@ const UserResults = () => {
     <>
       <Navbar selected='results' />
       <h1 data-testid='main-heading'>Your results</h1>
-      <UserCalendar entries={userHistory} />
-      <LineGraph entries={userHistory} />
+      <section className='grid grid-cols-12'>
+        <UserCalendar entries={userHistory} />
+        <LineGraph entries={userHistory} />
+      </section>
     </>
   );
 };

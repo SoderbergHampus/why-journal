@@ -64,7 +64,7 @@ const LineGraph = ({ entries }: LineGraphProps) => {
 
   return (
     <>
-      <section>
+      <section className='col-span-10 col-start-2'>
         <h2>Issue and parameter graph:</h2>
         <Plot data={plotData} layout={plotLayout}></Plot>
       </section>

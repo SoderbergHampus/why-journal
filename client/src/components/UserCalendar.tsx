@@ -7,7 +7,7 @@ type UserCalendarProps = {
 const UserCalendar = ({ entries }: UserCalendarProps) => {
   return (
     <>
-      <section>
+      <section className='col-span-10 col-start-2'>
         <h2>Calendar Entries:</h2>
         <ul>
           {entries.map((entry) => (
