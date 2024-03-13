@@ -13,15 +13,26 @@
     @apply text-xl font-medium py-4;
   }
   nav a {
-    @apply rounded px-4 py-2 hover:bg-gray-400;
+    @apply rounded px-4 py-2 hover:bg-gray-medium;
+  }
+
+  nav {
+    @apply bg-gray-semilight;
   }
 
   input,
   textarea {
-    @apply rounded bg-gray-200 px-2;
+    @apply rounded bg-gray-light px-2;
   }
 
-  button {
-    @apply rounded border p-2;
+  .button {
+    @apply rounded border p-2 bg-gray-semilight;
   }
+
+  .button:hover {
+    @apply bg-gray-medium;
+  }
+}
+
+@layer components {
 }

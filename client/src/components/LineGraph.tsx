@@ -64,7 +64,7 @@ const LineGraph = ({ entries }: LineGraphProps) => {
 
   return (
     <>
-      <section className=''>
+      <section>
         <h2>Issue and parameter graph:</h2>
         <Plot data={plotData} layout={plotLayout}></Plot>
       </section>

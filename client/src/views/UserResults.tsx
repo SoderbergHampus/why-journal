@@ -5,7 +5,6 @@ import { Entry } from '../types';
 import Navbar from '../components/Navbar';
 
 const UserResults = () => {
-  // Mock fetching data
   const [userHistory, setUserHistory] = useState<Entry[]>([]);
 
   useEffect(() => {

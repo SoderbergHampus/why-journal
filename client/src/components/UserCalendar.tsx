@@ -7,9 +7,9 @@ type UserCalendarProps = {
 const UserCalendar = ({ entries }: UserCalendarProps) => {
   return (
     <>
-      <section className=''>
+      <section>
         <h2>Calendar Entries:</h2>
-        <ul className=''>
+        <ul>
           {entries.map((entry) => (
             <li key={entry.id}>
               {entry.date} | {entry.issue.name}: {entry.issue.score} {' | '}

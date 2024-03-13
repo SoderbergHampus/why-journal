@@ -123,7 +123,7 @@ const JournalIssueForm = () => {
 
   const inputContainerClass = 'flex gap-3 py-2 justify-between';
   return (
-    <section className='col-span-4 col-start-2'>
+    <section className='col-span-5 col-start-2'>
       <h2>Input your daily scores:</h2>
       <form onSubmit={handleSubmit}>
         <h3>Main issue:</h3>
@@ -160,13 +160,11 @@ const JournalIssueForm = () => {
           ></textarea>
         </div>
 
-        <button type='submit'>Submit</button>
+        <button type='submit' className='button'>
+          Submit
+        </button>
       </form>
-      {submitMessage !== '' ? (
-        <h3>{submitMessage}</h3>
-      ) : (
-        <h3 className=''>{errorMsg}</h3>
-      )}
+      {submitMessage !== '' ? <h3>{submitMessage}</h3> : <h3>{errorMsg}</h3>}
     </section>
   );
 };
