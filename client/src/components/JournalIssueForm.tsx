@@ -1,6 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { Entry } from '../types';
-import { mockPostEntry } from '../dataMock';
 
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
   target: {
@@ -40,7 +39,13 @@ const JournalIssueForm = () => {
 
   useEffect(() => {
     if (entry !== undefined) {
-      mockPostEntry(entry)
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(entry),
+      };
+
+      fetch('http://localhost:3000/api/journalEntries', options)
         .then((response) => {
           if (response.status === 201) {
             setSubmitMsg('Your daily journal has been submitted!');
