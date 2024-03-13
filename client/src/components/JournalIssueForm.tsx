@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { Entry, SliderInputs } from '../types';
 import SliderInput from './SliderInput';
+import { addEntryToApi, getCurrentDate } from '../api';
 
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
   target: {
@@ -10,23 +11,6 @@ type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
     stressInput: { value: string };
     journalEntry: { value: string };
   };
-};
-
-/**
- * Function to get current date.
- * @returns Current date in format 'yyyy-mm-dd'
- */
-const getCurrentDate = (): string => {
-  const date = new Date();
-  let dd: number | string = date.getDate();
-  dd < 10 ? (dd = '0' + dd) : (dd = '' + dd);
-
-  let mm: number | string = date.getMonth() + 1;
-  mm < 10 ? (mm = '0' + mm) : (mm = '' + mm);
-
-  const yyyy = date.getFullYear().toString();
-
-  return `${yyyy}-${mm}-${dd}`;
 };
 
 /**
@@ -43,28 +27,7 @@ const JournalIssueForm = () => {
 
   useEffect(() => {
     if (entry !== undefined) {
-      const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(entry),
-      };
-
-      fetch('http://localhost:3000/api/journalEntries', options)
-        .then((response) => {
-          if (response.status === 201) {
-            setSubmitMsg('Your daily journal has been submitted!');
-            setErrorMsg('');
-          } else if (response.status === 404) {
-            setErrorMsg(
-              'Error when submitting message, incorrect submit input'
-            );
-            setSubmitMsg('');
-          }
-        })
-        .catch(() => {
-          setErrorMsg('Unknown error when submitting');
-          setSubmitMsg('');
-        });
+      addEntryToApi(entry, setSubmitMsg, setErrorMsg);
     }
   }, [entry]);
 

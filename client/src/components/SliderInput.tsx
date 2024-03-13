@@ -20,9 +20,9 @@ const SliderInput = ({ sliderInputs, setSliderInputs, index }: Props) => {
     <>
       <div className='flex items-center gap-4 py-4'>
         <RangeSlider
-          min={0}
+          min={1}
           max={100}
-          defaultValue={[0, 10]}
+          defaultValue={[1, 10]}
           thumbsDisabled={[true, false]}
           rangeSlideDisabled={true}
           className={'slider'}

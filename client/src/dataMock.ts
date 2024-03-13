@@ -1,3 +1,4 @@
+import { addEntryToApi, getCurrentDate } from './api';
 import { Entry, TrackedData } from './types';
 // import { v4 as uuid } from 'uuid';
 
@@ -17,7 +18,6 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
   const paramNames = ['sleep', 'diet', 'stress'];
   const issueName = 'headache';
 
-  const day = 1;
   const listOfEntries: Entry[] = [];
 
   // Loop through and mock n entries
@@ -40,9 +40,22 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
     const issue: TrackedData = { name: issueName, score: issueScore };
 
     // Mock date
-    let date;
-    day + i < 10 ? (date = `0${day + i}`) : (date = '' + (day + i));
-    date = '2024-03-' + date;
+    const dateNow = new Date();
+    dateNow.setDate(dateNow.getDate() - i);
+
+    let dd: number | string = dateNow.getDate();
+    dd < 10 ? (dd = '0' + dd) : (dd = '' + dd);
+
+    let mm: number | string = dateNow.getMonth() + 1;
+    mm < 10 ? (mm = '0' + mm) : (mm = '' + mm);
+
+    const yyyy = dateNow.getFullYear().toString();
+
+    const date = `${yyyy}-${mm}-${dd}`;
+
+    // let date;
+    // day + i < 10 ? (date = `0${day + i}`) : (date = '' + (day + i));
+    // date = '2024-03-' + date;
 
     // Mock journalentry
     const journalEntry = `Journal ${i + 1}`;
@@ -98,4 +111,10 @@ export const mockPostEntry = (entry: Entry): Promise<Response> => {
     }
     reject(mockedResponse);
   });
+};
+
+export const mockToApi = (n: number, weights: number[]) => {
+  const entries = generateMockData(n, weights);
+
+  entries.forEach((entry) => addEntryToApi(entry));
 };
