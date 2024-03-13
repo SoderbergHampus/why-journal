@@ -9,11 +9,22 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:tailwindcss/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {"ecmaVersion": "latest", "sourceType": "module"},
-  "plugins": ["@typescript-eslint", "react-refresh"],
+  "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
+  "plugins": [
+    "@typescript-eslint",
+    "react-refresh",
+    "eslint-plugin-tailwindcss"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
   "rules": {
     "react-refresh/only-export-components": "warn"
   },

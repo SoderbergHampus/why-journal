@@ -1,4 +1,5 @@
 @import url('./constants.css');
+@tailwind base;
 
 body {
   background-color: var(--primary-color);
