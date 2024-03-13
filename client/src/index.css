@@ -6,4 +6,8 @@
   h1 {
     @apply text-4xl font-bold p-6;
   }
+
+  nav a {
+    @apply rounded px-4 py-2 hover:bg-gray-400;
+  }
 }

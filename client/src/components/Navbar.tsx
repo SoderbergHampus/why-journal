@@ -11,18 +11,18 @@ const Navbar = ({ selected }: NavbarProps) => {
   useEffect(() => {
     switch (selected) {
       case 'home':
-        setHomeClass('rounded px-4 py-2 bg-gray-400');
-        setResultClass('rounded px-4 py-2 hover:bg-gray-400');
+        setHomeClass(' bg-gray-400');
+        setResultClass('');
         break;
 
       case 'results':
-        setHomeClass('rounded px-4 py-2 hover:bg-gray-400');
-        setResultClass('rounded px-4 py-2 bg-gray-400');
+        setHomeClass('');
+        setResultClass(' bg-gray-400');
         break;
 
       default:
-        setHomeClass('rounded px-4 py-2 hover:bg-gray-400');
-        setResultClass('rounded px-4 py-2 hover:bg-gray-400');
+        setHomeClass('');
+        setResultClass('');
         break;
     }
   }, [selected]);
