@@ -1,12 +1,16 @@
 import JournalIssueForm from '../components/JournalIssueForm';
+import Navbar from '../components/Navbar';
 
 const NewEntry = () => {
   return (
     <>
-      <h1 data-testid='main-heading' className='main__heading'>
-        Journal your day
-      </h1>
-      <JournalIssueForm />
+      <Navbar selected='home' />
+      <section className='section grid grid-cols-12'>
+        <h1 data-testid='main-heading' className='col-span-full'>
+          Journal your day
+        </h1>
+        <JournalIssueForm />
+      </section>
     </>
   );
 };

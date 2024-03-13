@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import LineGraph from '../components/LineGraph';
 import UserCalendar from '../components/UserCalendar';
 import { Entry } from '../types';
+import Navbar from '../components/Navbar';
 
 const UserResults = () => {
   // Mock fetching data
@@ -18,6 +19,7 @@ const UserResults = () => {
 
   return (
     <>
+      <Navbar selected='results' />
       <h1 data-testid='main-heading'>Your results</h1>
       <UserCalendar entries={userHistory} />
       <LineGraph entries={userHistory} />

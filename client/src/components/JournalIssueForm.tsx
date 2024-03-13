@@ -122,7 +122,7 @@ const JournalIssueForm = () => {
   console.log(entry);
 
   return (
-    <section className='section edit-issue--section'>
+    <section className=''>
       JournalIssueForm
       <h2>Input your daily scores:</h2>
       <form onSubmit={handleSubmit}>
@@ -153,9 +153,9 @@ const JournalIssueForm = () => {
         <button type='submit'>Submit</button>
       </form>
       {submitMessage !== '' ? (
-        <h3 className='submit-msg entry-form__submit-msg'>{submitMessage}</h3>
+        <h3 className=''>{submitMessage}</h3>
       ) : (
-        <h3 className='error-msg entry-form__error-msg'>{errorMsg}</h3>
+        <h3 className=''>{errorMsg}</h3>
       )}
     </section>
   );
