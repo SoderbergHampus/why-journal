@@ -35,4 +35,7 @@
 }
 
 @layer components {
+  .slider .range-slider__thumb[data-lower] {
+    @apply w-0;
+  }
 }

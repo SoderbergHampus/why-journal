@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
-import { Entry } from '../types';
+import { Entry, SliderInputs } from '../types';
+import SliderInput from './SliderInput';
 
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
   target: {
@@ -36,6 +37,9 @@ const JournalIssueForm = () => {
   const [entry, setEntry] = useState<Entry | undefined>();
   const [submitMessage, setSubmitMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [sliderInputs, setSliderInputs] = useState<SliderInputs>({
+    values: [10, 10, 10, 10],
+  });
 
   useEffect(() => {
     if (entry !== undefined) {
@@ -69,27 +73,32 @@ const JournalIssueForm = () => {
 
     // Validation and conversation to number
     const errorMsg = 'Invalid input scores';
-    const headacheScoreString = e.target.headacheInput.value;
-    const sleepScoreString = e.target.sleepInput.value;
-    const dietScoreString = e.target.dietInput.value;
-    const stressScoreString = e.target.stressInput.value;
+    const headacheScore = sliderInputs.values[0];
+    const sleepScore = sliderInputs.values[1];
+    const dietScore = sliderInputs.values[2];
+    const stressScore = sliderInputs.values[3];
 
-    if (
-      isNaN(parseInt(headacheScoreString)) ||
-      isNaN(parseInt(sleepScoreString)) ||
-      isNaN(parseInt(dietScoreString)) ||
-      isNaN(parseInt(stressScoreString))
-    ) {
-      setErrorMsg(errorMsg);
-      setSubmitMsg('');
-      setEntry(undefined);
-      return;
-    }
+    // const headacheScoreString = e.target.headacheInput.value;
+    // const sleepScoreString = e.target.sleepInput.value;
+    // const dietScoreString = e.target.dietInput.value;
+    // const stressScoreString = e.target.stressInput.value;
 
-    const headacheScore = +headacheScoreString;
-    const sleepScore = +sleepScoreString;
-    const dietScore = +dietScoreString;
-    const stressScore = +stressScoreString;
+    // if (
+    //   isNaN(parseInt(headacheScoreString)) ||
+    //   isNaN(parseInt(sleepScoreString)) ||
+    //   isNaN(parseInt(dietScoreString)) ||
+    //   isNaN(parseInt(stressScoreString))
+    // ) {
+    //   setErrorMsg(errorMsg);
+    //   setSubmitMsg('');
+    //   setEntry(undefined);
+    //   return;
+    // }
+
+    // const headacheScore = +headacheScoreString;
+    // const sleepScore = +sleepScoreString;
+    // const dietScore = +dietScoreString;
+    // const stressScore = +stressScoreString;
 
     if (
       headacheScore < 1 ||
@@ -119,46 +128,73 @@ const JournalIssueForm = () => {
     });
   };
 
-  console.log(entry);
-
-  const inputContainerClass = 'flex gap-3 py-2 justify-between';
   return (
     <section className='col-span-5 col-start-2'>
       <h2>Input your daily scores:</h2>
       <form onSubmit={handleSubmit}>
+        {/* <h3>Slider testing</h3>
+        <SliderInput /> */}
         <h3>Main issue:</h3>
-        <div className={inputContainerClass}>
-          <label htmlFor='headacheInput'>Headache:</label>
-          <input type='text' id='headacheInput' />
-        </div>
+
+        <label>Headache:</label>
+        <SliderInput
+          sliderInputs={sliderInputs}
+          setSliderInputs={setSliderInputs}
+          index={0}
+        />
+        {/* <div className='flex items-center gap-4 py-4'>
+          <RangeSlider
+            min={0}
+            max={100}
+            defaultValue={[0, 10]}
+            thumbsDisabled={[true, false]}
+            rangeSlideDisabled={true}
+            className={'slider'}
+            onInput={handleSliderInput}
+          />
+          <div>{sliderInputs.values[0]}</div>
+        </div> */}
 
         <h3>Parameters:</h3>
-        <div className={inputContainerClass}>
-          <label htmlFor='sleepInput'>Sleep:</label>
-          <input type='text' id='sleepInput' />
-        </div>
+        <label>Sleep:</label>
+        <SliderInput
+          sliderInputs={sliderInputs}
+          setSliderInputs={setSliderInputs}
+          index={1}
+        />
 
-        <div className={inputContainerClass}>
-          <label htmlFor='dietInput'>Diet:</label>
-          <input type='text' id='dietInput' />
-        </div>
+        <label>Diet:</label>
+        <SliderInput
+          sliderInputs={sliderInputs}
+          setSliderInputs={setSliderInputs}
+          index={2}
+        />
 
-        <div className={inputContainerClass}>
-          <label htmlFor='stressInput'>Stress:</label>
-          <input type='text' id='stressInput' />
-        </div>
+        <label>Stress:</label>
+        <SliderInput
+          sliderInputs={sliderInputs}
+          setSliderInputs={setSliderInputs}
+          index={3}
+        />
 
-        <div className='flex-col'>
-          <h2>(Optional) Add a journal entry: </h2>
-          <label htmlFor='journalEntry'></label>
-          <textarea
-            name=''
-            id='journalEntry'
-            defaultValue={''}
-            cols={50}
-            rows={15}
-          ></textarea>
-        </div>
+        {/* <label>Sleep:</label>
+        <SliderInput />
+
+        <label>Diet:</label>
+        <SliderInput />
+
+        <label>Stress:</label>
+        <SliderInput /> */}
+
+        <h2>(Optional) Add a journal entry: </h2>
+        <label htmlFor='journalEntry'></label>
+        <textarea
+          name=''
+          id='journalEntry'
+          defaultValue={''}
+          cols={50}
+          rows={15}
+        ></textarea>
 
         <button type='submit' className='button'>
           Submit
@@ -167,6 +203,56 @@ const JournalIssueForm = () => {
       {submitMessage !== '' ? <h3>{submitMessage}</h3> : <h3>{errorMsg}</h3>}
     </section>
   );
+
+  // const inputContainerClass = 'flex gap-3 py-2 justify-between';
+  // return (
+  //   <section className='col-span-5 col-start-2'>
+  //     <h2>Input your daily scores:</h2>
+  //     <form onSubmit={handleSubmit}>
+  //       <h3>Slider testing</h3>
+  //       <SliderInput />
+  //       <h3>Main issue:</h3>
+  //       <div className={inputContainerClass}>
+  //         <label htmlFor='headacheInput'>Headache:</label>
+  //         <SliderInput />
+  //         {/* <input type='text' id='headacheInput' /> */}
+  //       </div>
+
+  //       <h3>Parameters:</h3>
+  //       <div className={inputContainerClass}>
+  //         <label htmlFor='sleepInput'>Sleep:</label>
+  //         <input type='text' id='sleepInput' />
+  //       </div>
+
+  //       <div className={inputContainerClass}>
+  //         <label htmlFor='dietInput'>Diet:</label>
+  //         <input type='text' id='dietInput' />
+  //       </div>
+
+  //       <div className={inputContainerClass}>
+  //         <label htmlFor='stressInput'>Stress:</label>
+  //         <input type='text' id='stressInput' />
+  //       </div>
+
+  //       <div className='flex-col'>
+  //         <h2>(Optional) Add a journal entry: </h2>
+  //         <label htmlFor='journalEntry'></label>
+  //         <textarea
+  //           name=''
+  //           id='journalEntry'
+  //           defaultValue={''}
+  //           cols={50}
+  //           rows={15}
+  //         ></textarea>
+  //       </div>
+
+  //       <button type='submit' className='button'>
+  //         Submit
+  //       </button>
+  //     </form>
+  //     {submitMessage !== '' ? <h3>{submitMessage}</h3> : <h3>{errorMsg}</h3>}
+  //   </section>
+  // );
 };
 
 export default JournalIssueForm;

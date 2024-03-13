@@ -10,3 +10,7 @@ export type Entry = {
   parameters: TrackedData[];
   journalEntry?: string;
 };
+
+export type SliderInputs = {
+  values: number[];
+};
