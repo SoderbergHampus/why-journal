@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Entry } from '../types';
 
 type UserCalendarProps = {
@@ -5,6 +6,7 @@ type UserCalendarProps = {
 };
 
 const UserCalendar = ({ entries }: UserCalendarProps) => {
+  const navigate = useNavigate();
   return (
     <>
       {entries !== undefined && (
@@ -15,7 +17,13 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
               .map((entry) => (
                 <li key={entry.date}>
                   <a href=''>
-                    <button>
+                    <button
+                      onClick={() =>
+                        navigate(entry.date, {
+                          state: { date: entry.date, entry: entry },
+                        })
+                      }
+                    >
                       {entry.date}
                       {/* | {entry.issue.name}: {entry.issue.score} {' | '}
               {entry.parameters[0].name}: {entry.parameters[0].score} {', '}

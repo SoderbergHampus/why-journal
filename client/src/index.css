@@ -44,6 +44,10 @@
   .weights {
     @apply w-28;
   }
+
+  .entry-prop__container {
+    @apply grid grid-cols-12;
+  }
 }
 
 @layer components {
