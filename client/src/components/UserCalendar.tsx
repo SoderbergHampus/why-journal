@@ -13,8 +13,8 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
         <section className='col-span-10 col-start-2'>
           <h2>Calendar Entries:</h2>
           <ul className='flex max-w-3xl flex-wrap justify-between gap-3.5 rounded bg-gray-semilight p-4'>
-            {entries
-              .map((entry) => (
+            {
+              entries.map((entry) => (
                 <li key={entry.date} className=''>
                   <a href=''>
                     <button
@@ -30,7 +30,8 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
                   </a>
                 </li>
               ))
-              .sort((a, b) => a.key!.localeCompare(b.key!))}
+              // .sort((a, b) => a.key!.localeCompare(b.key!))}
+            }
           </ul>
         </section>
       )}

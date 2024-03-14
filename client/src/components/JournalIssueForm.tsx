@@ -1,19 +1,8 @@
-import {
-  FormEvent,
-  ForwardedRef,
-  forwardRef,
-  useEffect,
-  useState,
-} from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Entry, SliderInputs } from '../types';
 import SliderInput from './SliderInput';
 import { addEntryToApi, formatDate } from '../api';
-import DatePicker, {
-  getDefaultLocale,
-  registerLocale,
-  setDefaultLocale,
-} from 'react-datepicker';
-import { sv } from 'date-fns/locale/sv';
+import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import { mockToApi } from '../dataMock';
@@ -34,9 +23,6 @@ type FormEventMock = FormEvent<HTMLFormElement> & {
     weights: { value: string };
   };
 };
-
-// registerLocale('sv', sv);
-// setDefaultLocale('sv');
 
 /**
  * Component

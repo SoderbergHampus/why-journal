@@ -11,7 +11,7 @@ const UserResults = () => {
     fetch('http://localhost:3000/api/journalEntries')
       .then((response) => response.json())
       .then((data: Entry[]) => {
-        setEntries(data);
+        setEntries(data.sort((a, b) => a.date.localeCompare(b.date)));
       })
       .catch(() => console.log('Error when fetching'));
   }, []);

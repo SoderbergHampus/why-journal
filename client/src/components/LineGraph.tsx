@@ -15,6 +15,7 @@ const LineGraph = ({ entries }: LineGraphProps) => {
     const xAxis: number[] = [...Array(entries.length).keys()];
 
     let xText = entries.map((entry) => entry.date);
+
     let xVals = xAxis;
     while (xText.length > 10) {
       const xTextNew = [];
