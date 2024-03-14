@@ -19,11 +19,21 @@ const UserResults = () => {
   return (
     <>
       <Navbar selected='results' />
-      <h1 data-testid='main-heading'>Your results</h1>
-      <section className='grid grid-cols-12 content-center'>
-        <UserCalendar entries={entries} />
-        <LineGraph entries={entries} />
-      </section>
+      <>
+        <h1 data-testid='main-heading'>Your results</h1>
+        <section className='grid grid-cols-12 content-center'>
+          {entries !== undefined && entries.length > 0 ? (
+            <UserCalendar entries={entries} />
+          ) : (
+            <></>
+          )}
+          {entries !== undefined && entries.length > 1 ? (
+            <LineGraph entries={entries} />
+          ) : (
+            <></>
+          )}
+        </section>
+      </>
     </>
   );
 };

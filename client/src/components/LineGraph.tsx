@@ -17,7 +17,7 @@ const LineGraph = ({ entries }: LineGraphProps) => {
     let xText = entries.map((entry) => entry.date);
 
     let xVals = xAxis;
-    while (xText.length > 10) {
+    while (xText.length > 13) {
       const xTextNew = [];
       const xValsNew = [];
       for (let i = 0; i < xText.length; i++) {
@@ -28,6 +28,7 @@ const LineGraph = ({ entries }: LineGraphProps) => {
       }
       xText = xTextNew;
       xVals = xValsNew;
+      console.log(xText.length);
     }
 
     const issueScores: number[] = [];

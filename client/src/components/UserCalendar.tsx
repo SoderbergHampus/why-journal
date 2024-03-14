@@ -7,16 +7,20 @@ type UserCalendarProps = {
 
 const UserCalendar = ({ entries }: UserCalendarProps) => {
   const navigate = useNavigate();
+  let entriesCopy;
+  entries !== undefined ? (entriesCopy = [...entries]) : undefined;
+  entriesCopy !== undefined &&
+    entriesCopy.sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <>
-      {entries !== undefined && (
+      {entriesCopy !== undefined && (
         <section className='col-span-10 col-start-2 grid grid-flow-col grid-cols-12 bg-gray-semilight'>
           <h2 className='col-span-full'>Calendar Entries:</h2>
           {/* <ul className='flex max-w-3xl flex-wrap justify-between gap-3.5 rounded bg-gray-semilight p-4'> */}
           {/* <div className='col-span-full col-start-1 rounded bg-gray-semilight p-10'> */}
           {
-            entries.map((entry) => (
+            entriesCopy.map((entry) => (
               <button
                 key={entry.date}
                 className='col-span-full p-6'
