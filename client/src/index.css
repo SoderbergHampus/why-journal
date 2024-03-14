@@ -17,7 +17,7 @@
   }
 
   nav {
-    @apply bg-gray-semilight;
+    @apply sticky top-0 z-10 flex flex-wrap items-center justify-between p-6 bg-gray-semilight;
   }
 
   input,
@@ -27,6 +27,10 @@
 
   section {
     @apply my-10 col-span-full mx-6;
+  }
+
+  .section-view {
+    @apply grid grid-cols-12 content-center;
   }
 
   .button {

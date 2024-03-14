@@ -28,7 +28,7 @@ const Navbar = ({ selected }: NavbarProps) => {
   }, [selected]);
 
   return (
-    <nav className='sticky top-0 z-10 flex flex-wrap items-center justify-between p-6'>
+    <nav>
       <p className='text-xl font-bold tracking-tight'>Why, Journal?</p>
       <ul className='flex flex-wrap items-center justify-between gap-4'>
         <li>

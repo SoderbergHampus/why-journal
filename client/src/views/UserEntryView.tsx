@@ -5,7 +5,7 @@ const UserEntryView = () => {
   return (
     <>
       <Navbar selected='results'></Navbar>
-      <section className='grid grid-cols-12'>
+      <section className='section-view'>
         <UserEntry />
       </section>
     </>

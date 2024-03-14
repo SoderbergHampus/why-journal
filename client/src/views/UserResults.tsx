@@ -20,7 +20,7 @@ const UserResults = () => {
     <>
       <Navbar selected='results' />
       <>
-        <section className='grid grid-cols-12 content-center'>
+        <section className='section-view'>
           <h1 data-testid='main-heading'>Your results</h1>
 
           {entries !== undefined && entries.length > 0 ? (
