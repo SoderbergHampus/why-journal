@@ -2,6 +2,8 @@ import { FormEvent, useEffect, useState } from 'react';
 import { Entry, SliderInputs } from '../types';
 import SliderInput from './SliderInput';
 import { addEntryToApi, getCurrentDate } from '../api';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { mockToApi } from '../dataMock';
 
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
@@ -87,7 +89,8 @@ const JournalIssueForm = () => {
 
   return (
     <section className='col-span-5 col-start-2'>
-      <h2>Input your daily scores:</h2>
+      <h2>Input your daily scores</h2>
+
       <form onSubmit={handleSubmit}>
         {/* <h3>Slider testing</h3>
         <SliderInput /> */}

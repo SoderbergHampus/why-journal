@@ -8,7 +8,7 @@ export const UserEntry = () => {
     <>
       <h1 className='col-span-10'>{entry.date}</h1>
       <h2 className='col-span-10 col-start-2'>Scores:</h2>
-      <article className='col-span-9 col-start-3 flex flex-col gap-10'>
+      <article className='col-span-9 col-start-3 flex flex-col gap-10 rounded bg-gray-semilight p-4'>
         <div className='entry-prop__container'>
           <h3 className='col-span-3'>{entry.issue.name}: </h3>
           <h3>{entry.issue.score} </h3>
@@ -29,9 +29,9 @@ export const UserEntry = () => {
           <h3>{entry.parameters[2].score}</h3>
         </div>
       </article>
-      <h2 className='col-span-10 col-start-2 mt-10'>Journal Entry:</h2>
 
-      <p className='col-span-9 col-start-3 break-normal'>
+      <h2 className='col-span-10 col-start-2 mt-10'>Journal Entry:</h2>
+      <p className='col-span-9 col-start-3 break-normal rounded bg-gray-semilight p-4'>
         {entry.journalEntry}
       </p>
     </>
