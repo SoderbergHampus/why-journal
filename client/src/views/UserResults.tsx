@@ -20,7 +20,7 @@ const UserResults = () => {
     <>
       <Navbar selected='results' />
       <h1 data-testid='main-heading'>Your results</h1>
-      <section className='grid grid-cols-12'>
+      <section className='grid grid-cols-12 content-center'>
         <UserCalendar entries={entries} />
         <LineGraph entries={entries} />
       </section>
