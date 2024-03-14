@@ -92,8 +92,19 @@ const JournalIssueForm = () => {
   return (
     <section className=''>
       <form onSubmit={handleSubmit}>
+        <h2>Select date</h2>
+        <DatePicker
+          showIcon
+          selected={date}
+          onChange={(d) => d !== null && setDate(d)}
+          dateFormat='yyyy-MM-dd'
+          maxDate={new Date()}
+          className='button-date'
+        />
+
         <h2>Main issue</h2>
-        <div className='div-container -z-0'>
+
+        <div className='div-container'>
           <label>Headache</label>
           <SliderInput
             sliderInputs={sliderInputs}
@@ -125,16 +136,6 @@ const JournalIssueForm = () => {
             index={3}
           />
         </div>
-
-        <h2>Select date</h2>
-        <DatePicker
-          showIcon
-          selected={date}
-          onChange={(d) => d !== null && setDate(d)}
-          dateFormat='yyyy-MM-dd'
-          maxDate={new Date()}
-          className='button-date'
-        />
 
         <h2>Write about your day</h2>
         <textarea
