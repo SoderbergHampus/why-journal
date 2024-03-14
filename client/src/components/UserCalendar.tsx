@@ -12,12 +12,13 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
       {entries !== undefined && (
         <section className='col-span-10 col-start-2'>
           <h2>Calendar Entries:</h2>
-          <ul>
+          <ul className='grid max-w-3xl grid-cols-12'>
             {entries
               .map((entry) => (
-                <li key={entry.date}>
+                <li key={entry.date} className='col-span-2 my-3'>
                   <a href=''>
                     <button
+                      className='button'
                       onClick={() =>
                         navigate(entry.date, {
                           state: { date: entry.date, entry: entry },
@@ -25,10 +26,6 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
                       }
                     >
                       {entry.date}
-                      {/* | {entry.issue.name}: {entry.issue.score} {' | '}
-              {entry.parameters[0].name}: {entry.parameters[0].score} {', '}
-              {entry.parameters[1].name}: {entry.parameters[1].score} {', '}
-              {entry.parameters[2].name}: {entry.parameters[2].score} */}
                     </button>
                   </a>
                 </li>
