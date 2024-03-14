@@ -4,13 +4,13 @@
 
 @layer base {
   h1 {
-    @apply text-4xl font-bold p-4;
+    @apply text-4xl font-bold p-4 col-span-full;
   }
   h2 {
-    @apply text-2xl font-semibold py-2;
+    @apply text-2xl font-semibold mt-6 mb-2;
   }
   h3 {
-    @apply text-xl font-medium py-4;
+    @apply text-xl font-medium mt-4 mb-1;
   }
   nav a {
     @apply rounded px-4 py-2 hover:bg-gray-medium;
@@ -26,7 +26,7 @@
   }
 
   section {
-    @apply mt-20 col-span-full mx-6;
+    @apply my-10 col-span-full mx-6;
   }
 
   .button {
@@ -37,8 +37,11 @@
     @apply bg-gray-medium;
   }
 
+  .button-date {
+    @apply flex h-8 w-32 items-center justify-end;
+  }
   .mock-input {
-    @apply h-10 mr-5;
+    @apply h-8 mr-5 items-center;
   }
 
   .n {
@@ -51,6 +54,10 @@
 
   .entry-prop__container {
     @apply grid grid-cols-12;
+  }
+
+  .div-container {
+    @apply rounded px-4 pt-2 bg-gray-semilight;
   }
 }
 

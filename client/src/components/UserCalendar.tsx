@@ -17,7 +17,7 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
       {entriesCopy !== undefined && (
         <>
           <section>
-            <h2 className='col-span-full col-start-2'>Calendar Entries:</h2>
+            <h2 className='col-span-full col-start-2'>Calendar Entries</h2>
             <div className='col-span-10 col-start-2 grid max-h-96 grid-flow-col grid-cols-12 place-items-center overflow-scroll rounded bg-gray-semilight'>
               <div className='col-span-full grid w-full grid-cols-5 place-items-center gap-1 py-4'>
                 <p className='col-start-1 text-xl font-medium'>Date</p>

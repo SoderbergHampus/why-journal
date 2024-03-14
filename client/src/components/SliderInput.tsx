@@ -22,10 +22,10 @@ const SliderInput = ({ sliderInputs, setSliderInputs, index }: Props) => {
         <RangeSlider
           min={1}
           max={100}
-          defaultValue={[1, 10]}
+          defaultValue={[1, 50]}
           thumbsDisabled={[true, false]}
           rangeSlideDisabled={true}
-          className={'slider'}
+          className={'slider z-0'}
           onInput={handleSliderInput}
         />
         <div>{sliderInputs.values[index]}</div>

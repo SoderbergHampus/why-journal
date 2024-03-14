@@ -33,7 +33,7 @@ const JournalIssueForm = () => {
   const [submitMessage, setSubmitMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [sliderInputs, setSliderInputs] = useState<SliderInputs>({
-    values: [10, 10, 10, 10],
+    values: [50, 50, 50, 50],
   });
   const [date, setDate] = useState(new Date());
 
@@ -90,58 +90,58 @@ const JournalIssueForm = () => {
   };
 
   return (
-    <section className='col-span-5 col-start-2'>
-      <h2>Input your daily scores</h2>
+    <section className=''>
       <form onSubmit={handleSubmit}>
-        <h3>Main issue</h3>
+        <h2>Main issue</h2>
+        <div className='div-container -z-0'>
+          <label>Headache</label>
+          <SliderInput
+            sliderInputs={sliderInputs}
+            setSliderInputs={setSliderInputs}
+            index={0}
+          />
+        </div>
 
-        <label>Headache</label>
-        <SliderInput
-          sliderInputs={sliderInputs}
-          setSliderInputs={setSliderInputs}
-          index={0}
-        />
+        <h2>Parameters</h2>
+        <div className='div-container'>
+          <label>Sleep</label>
+          <SliderInput
+            sliderInputs={sliderInputs}
+            setSliderInputs={setSliderInputs}
+            index={1}
+          />
 
-        <h3>Parameters</h3>
-        <label>Sleep</label>
-        <SliderInput
-          sliderInputs={sliderInputs}
-          setSliderInputs={setSliderInputs}
-          index={1}
-        />
+          <label>Diet</label>
+          <SliderInput
+            sliderInputs={sliderInputs}
+            setSliderInputs={setSliderInputs}
+            index={2}
+          />
 
-        <label>Diet</label>
-        <SliderInput
-          sliderInputs={sliderInputs}
-          setSliderInputs={setSliderInputs}
-          index={2}
-        />
+          <label>Stress</label>
+          <SliderInput
+            sliderInputs={sliderInputs}
+            setSliderInputs={setSliderInputs}
+            index={3}
+          />
+        </div>
 
-        <label>Stress</label>
-        <SliderInput
-          sliderInputs={sliderInputs}
-          setSliderInputs={setSliderInputs}
-          index={3}
-        />
-
-        <h3>Select date</h3>
+        <h2>Select date</h2>
         <DatePicker
           showIcon
           selected={date}
           onChange={(d) => d !== null && setDate(d)}
           dateFormat='yyyy-MM-dd'
           maxDate={new Date()}
-          className='button flex h-8 w-32 items-center justify-end'
+          className='button-date'
         />
 
-        <h2>Write in your journal</h2>
-        <label htmlFor='journalEntry'></label>
+        <h2>Write about your day</h2>
         <textarea
           name=''
           id='journalEntry'
           defaultValue={''}
-          cols={50}
-          rows={15}
+          className='div-container h-80 w-full'
         ></textarea>
 
         <button type='submit' className='button'>
@@ -152,15 +152,15 @@ const JournalIssueForm = () => {
 
       <hr />
       <h2>Mock data</h2>
-      <form onSubmit={handleMock} className='flex gap-5'>
-        <label>n</label>
+      <form onSubmit={handleMock} className='mt-6 flex items-center gap-5'>
+        <label>Number of entries: </label>
         <input
           type='number'
           className='mock-input n'
           id='n'
           defaultValue={'5'}
         />
-        <label>weights</label>
+        <label>Weights:</label>
         <input
           id='weights'
           type='text'
