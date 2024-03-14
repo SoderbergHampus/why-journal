@@ -28,7 +28,7 @@ public class Entry {
     @Column(name = "parameter_scores")
     private String parameterScores;
 
-    @Column(name = "journal_entry")
+    @Column(name = "journal_entry", length = 5000)
     private String journalEntry;
 
     // Constructors

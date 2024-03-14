@@ -1,3 +1,4 @@
+import { loremIpsum } from 'lorem-ipsum';
 import { addEntryToApi } from './api';
 import { Entry, TrackedData } from './types';
 
@@ -57,7 +58,7 @@ export const generateMockData = (n: number, weights: number[]): Entry[] => {
     const date = `${yyyy}-${mm}-${dd}`;
 
     // Mock journalentry
-    const journalEntry = `Journal ${i + 1}`;
+    const journalEntry = loremIpsum({ count: 30, paragraphLowerBound: 3 });
 
     // Create object for mocked data and add it to result list
     const entry: Entry = {

@@ -30,7 +30,10 @@ export const UserEntry = () => {
         </div>
       </article>
       <h2 className='col-span-10 col-start-2 mt-10'>Journal Entry:</h2>
-      <h3 className='col-span-9 col-start-3'>{entry.journalEntry}</h3>
+
+      <p className='col-span-9 col-start-3 break-normal'>
+        {entry.journalEntry}
+      </p>
     </>
   );
 };
