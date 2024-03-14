@@ -57,11 +57,23 @@
   }
 
   .entry-prop__container {
-    @apply grid grid-cols-12;
+    @apply flex flex-wrap justify-between;
   }
 
   .div-container {
     @apply rounded px-4 pt-2 bg-gray-semilight;
+  }
+
+  .entry__section {
+    @apply col-span-full;
+  }
+
+  .entries__container {
+    @apply max-w-sm col-start-3 flex flex-col gap-10 rounded bg-gray-semilight p-4;
+  }
+
+  .journal__container {
+    @apply max-w-sm col-span-9 col-start-3 break-normal rounded bg-gray-semilight p-4;
   }
 }
 

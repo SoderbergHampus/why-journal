@@ -7,34 +7,34 @@ export const UserEntry = () => {
   return (
     <>
       <h1 className='col-span-10'>{entry.date}</h1>
-      <section>
-        <h2 className='col-span-10 col-start-2'>Scores:</h2>
-        <article className='col-span-9 col-start-3 flex flex-col gap-10 rounded bg-gray-semilight p-4'>
+      <section className='entry__section'>
+        <h2 className='col-span-10 col-start-2'>Scores</h2>
+        <article className='entries__container'>
           <div className='entry-prop__container'>
-            <h3 className='col-span-3'>{entry.issue.name}: </h3>
-            <h3>{entry.issue.score} </h3>
+            <p>Headache: </p>
+            <p>{entry.issue.score} </p>
           </div>
 
           <div className='entry-prop__container'>
-            <h3 className='col-span-3'>{entry.parameters[0].name}:</h3>
-            <h3>{entry.parameters[0].score}</h3>
+            <p>Sleep:</p>
+            <p>{entry.parameters[0].score}</p>
           </div>
 
           <div className='entry-prop__container'>
-            <h3 className='col-span-3'>{entry.parameters[1].name}:</h3>
-            <h3>{entry.parameters[1].score}</h3>
+            <p>Diet:</p>
+            <p>{entry.parameters[1].score}</p>
           </div>
 
           <div className='entry-prop__container'>
-            <h3 className='col-span-3'>{entry.parameters[2].name}:</h3>
-            <h3>{entry.parameters[2].score}</h3>
+            <p>Stress:</p>
+            <p>{entry.parameters[2].score}</p>
           </div>
         </article>
 
-        <h2 className='col-span-10 col-start-2 mt-10'>Journal Entry:</h2>
-        <p className='col-span-9 col-start-3 break-normal rounded bg-gray-semilight p-4'>
-          {entry.journalEntry}
-        </p>
+        <h2 className='col-span-10 col-start-2 mt-10'>Journal Entry</h2>
+        <div className='journal__container'>
+          <p>{entry.journalEntry}</p>
+        </div>
       </section>
     </>
   );
