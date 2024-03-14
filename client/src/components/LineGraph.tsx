@@ -17,7 +17,7 @@ const LineGraph = ({ entries }: LineGraphProps) => {
     let xText = entries.map((entry) => entry.date);
 
     let xVals = xAxis;
-    while (xText.length > 13) {
+    while (xText.length > 10) {
       const xTextNew = [];
       const xValsNew = [];
       for (let i = 0; i < xText.length; i++) {
@@ -77,32 +77,48 @@ const LineGraph = ({ entries }: LineGraphProps) => {
     ];
 
     plotLayout = {
-      title: 'Scores',
+      autosize: true,
       yaxis: { range: [-10, 110], title: 'Score' },
       xaxis: {
         title: 'Date',
         tickmode: 'array',
         tickvals: xVals,
         ticktext: xText,
-        tickangle: 30,
+        tickangle: 50,
+      },
+      plot_bgcolor: '#d4d4d8',
+      paper_bgcolor: '#d4d4d8',
+      font: {
+        color: '#09090b',
       },
       showlegend: true,
+      legend: {
+        x: 0,
+        xanchor: 'left',
+        y: 1.3,
+      },
     };
   } else {
     plotData = undefined;
     plotLayout = undefined;
   }
-
   return (
     <>
-      {entries !== undefined &&
-        plotData !== undefined &&
-        plotLayout !== undefined && (
-          <section className='col-span-10 col-start-2'>
-            <h2>Issue and parameter graph:</h2>
-            <Plot data={plotData} layout={plotLayout}></Plot>
-          </section>
-        )}
+      <section>
+        <h2>Issue and parameter scores</h2>
+        {entries !== undefined &&
+          plotData !== undefined &&
+          plotLayout !== undefined && (
+            <div className='div-container pb-2' id='plot__section'>
+              <Plot
+                data={plotData}
+                layout={plotLayout}
+                useResizeHandler={true}
+                className='w-full'
+              ></Plot>
+            </div>
+          )}
+      </section>
     </>
   );
 };

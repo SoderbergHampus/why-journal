@@ -90,7 +90,7 @@ const JournalIssueForm = () => {
   };
 
   return (
-    <section className=''>
+    <section>
       <form onSubmit={handleSubmit}>
         <h2>Select date</h2>
         <DatePicker
@@ -153,21 +153,29 @@ const JournalIssueForm = () => {
 
       <hr />
       <h2>Mock data</h2>
-      <form onSubmit={handleMock} className='mt-6 flex items-center gap-5'>
-        <label>Number of entries: </label>
-        <input
-          type='number'
-          className='mock-input n'
-          id='n'
-          defaultValue={'5'}
-        />
-        <label>Weights:</label>
-        <input
-          id='weights'
-          type='text'
-          className='mock-input weights'
-          defaultValue={'0.8,0.4,0.2'}
-        />
+      <form
+        onSubmit={handleMock}
+        className='mt-6 flex flex-wrap items-center gap-5'
+      >
+        <div>
+          <label>Number of entries: </label>
+          <input
+            type='number'
+            className='mock-input n'
+            id='n'
+            defaultValue={'5'}
+          />
+        </div>
+
+        <div>
+          <label>Weights:</label>
+          <input
+            id='weights'
+            type='text'
+            className='mock-input weights'
+            defaultValue={'0.8,0.4,0.2'}
+          />
+        </div>
         <button className='button' type='submit'>
           Mock data
         </button>

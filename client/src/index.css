@@ -45,7 +45,7 @@
     @apply flex h-8 w-32 items-center justify-end;
   }
   .mock-input {
-    @apply h-8 mr-5 items-center;
+    @apply h-8 items-center;
   }
 
   .n {
