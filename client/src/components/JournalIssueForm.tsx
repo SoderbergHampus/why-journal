@@ -1,8 +1,20 @@
-import { FormEvent, useEffect, useState } from 'react';
+import {
+  FormEvent,
+  ForwardedRef,
+  forwardRef,
+  useEffect,
+  useState,
+} from 'react';
 import { Entry, SliderInputs } from '../types';
 import SliderInput from './SliderInput';
-import { addEntryToApi, getCurrentDate } from '../api';
-import DatePicker from 'react-datepicker';
+import { addEntryToApi, formatDate } from '../api';
+import DatePicker, {
+  getDefaultLocale,
+  registerLocale,
+  setDefaultLocale,
+} from 'react-datepicker';
+import { sv } from 'date-fns/locale/sv';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import { mockToApi } from '../dataMock';
 
@@ -23,6 +35,9 @@ type FormEventMock = FormEvent<HTMLFormElement> & {
   };
 };
 
+// registerLocale('sv', sv);
+// setDefaultLocale('sv');
+
 /**
  * Component
  * @returns
@@ -34,6 +49,7 @@ const JournalIssueForm = () => {
   const [sliderInputs, setSliderInputs] = useState<SliderInputs>({
     values: [10, 10, 10, 10],
   });
+  const [date, setDate] = useState(new Date());
 
   const handleMock = (e: FormEventMock) => {
     e.preventDefault();
@@ -76,7 +92,7 @@ const JournalIssueForm = () => {
     }
 
     setEntry({
-      date: getCurrentDate(),
+      date: formatDate(date),
       issue: { name: 'headache', score: headacheScore },
       parameters: [
         { name: 'sleep', score: sleepScore },
@@ -90,42 +106,49 @@ const JournalIssueForm = () => {
   return (
     <section className='col-span-5 col-start-2'>
       <h2>Input your daily scores</h2>
-
       <form onSubmit={handleSubmit}>
-        {/* <h3>Slider testing</h3>
-        <SliderInput /> */}
-        <h3>Main issue:</h3>
+        <h3>Main issue</h3>
 
-        <label>Headache:</label>
+        <label>Headache</label>
         <SliderInput
           sliderInputs={sliderInputs}
           setSliderInputs={setSliderInputs}
           index={0}
         />
 
-        <h3>Parameters:</h3>
-        <label>Sleep:</label>
+        <h3>Parameters</h3>
+        <label>Sleep</label>
         <SliderInput
           sliderInputs={sliderInputs}
           setSliderInputs={setSliderInputs}
           index={1}
         />
 
-        <label>Diet:</label>
+        <label>Diet</label>
         <SliderInput
           sliderInputs={sliderInputs}
           setSliderInputs={setSliderInputs}
           index={2}
         />
 
-        <label>Stress:</label>
+        <label>Stress</label>
         <SliderInput
           sliderInputs={sliderInputs}
           setSliderInputs={setSliderInputs}
           index={3}
         />
 
-        <h2>(Optional) Add a journal entry: </h2>
+        <h3>Select date</h3>
+        <DatePicker
+          showIcon
+          selected={date}
+          onChange={(d) => d !== null && setDate(d)}
+          dateFormat='yyyy-MM-dd'
+          maxDate={new Date()}
+          className='button flex h-8 w-32 items-center justify-end'
+        />
+
+        <h2>Write in your journal</h2>
         <label htmlFor='journalEntry'></label>
         <textarea
           name=''

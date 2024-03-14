@@ -17,6 +17,18 @@ export const getCurrentDate = (): string => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
+export const formatDate = (date: Date): string => {
+  let dd: number | string = date.getDate();
+  dd < 10 ? (dd = '0' + dd) : (dd = '' + dd);
+
+  let mm: number | string = date.getMonth() + 1;
+  mm < 10 ? (mm = '0' + mm) : (mm = '' + mm);
+
+  const yyyy = date.getFullYear().toString();
+
+  return `${yyyy}-${mm}-${dd}`;
+};
+
 export const addEntryToApi = (
   entry: Entry,
   setSubmitMsg?: (p: string) => void,
