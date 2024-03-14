@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: api
+    name: why-journal-api
 
   datasource:
     driver-class-name: org.postgresql.Driver
