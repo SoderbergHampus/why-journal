@@ -15,12 +15,10 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
   return (
     <>
       {entriesCopy !== undefined && (
-        <section className='col-span-10 col-start-2 grid grid-flow-col grid-cols-12 bg-gray-semilight'>
-          <h2 className='col-span-full'>Calendar Entries:</h2>
-          {/* <ul className='flex max-w-3xl flex-wrap justify-between gap-3.5 rounded bg-gray-semilight p-4'> */}
-          {/* <div className='col-span-full col-start-1 rounded bg-gray-semilight p-10'> */}
-          {
-            entriesCopy.map((entry) => (
+        <>
+          <h2 className='col-span-full col-start-2'>Calendar Entries:</h2>
+          <section className='col-span-10 col-start-2 grid max-h-96 grid-flow-col grid-cols-12 overflow-scroll bg-gray-semilight'>
+            {entriesCopy.map((entry) => (
               <button
                 key={entry.date}
                 className='col-span-full p-6'
@@ -30,20 +28,11 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
                   })
                 }
               >
-                {/* className='w-28'
-                    onClick={() =>
-                      navigate(entry.date, {
-                        state: { date: entry.date, entry: entry },
-                      })
-                    }
-           */}
                 {entry.date}
               </button>
-            ))
-            // .sort((a, b) => a.key!.localeCompare(b.key!))}
-          }
-          {/* </div> */}
-        </section>
+            ))}
+          </section>
+        </>
       )}
     </>
   );
