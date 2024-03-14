@@ -28,7 +28,6 @@ const LineGraph = ({ entries }: LineGraphProps) => {
       }
       xText = xTextNew;
       xVals = xValsNew;
-      console.log(xText.length);
     }
 
     const issueScores: number[] = [];
