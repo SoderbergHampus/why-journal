@@ -25,6 +25,10 @@
     @apply rounded bg-gray-light px-2;
   }
 
+  section {
+    @apply mt-20 col-span-full mx-6;
+  }
+
   .button {
     @apply rounded border p-2 bg-gray-semilight;
   }
