@@ -4,7 +4,7 @@ import { ViewProps } from '../types';
 
 const NewEntry = ({ setSelectedView }: ViewProps) => {
   useEffect(() => {
-    setSelectedView('home');
+    setSelectedView('newEntry');
   });
 
   return (

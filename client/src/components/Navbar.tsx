@@ -5,23 +5,23 @@ type NavbarProps = {
 };
 
 const Navbar = ({ selected }: NavbarProps) => {
-  const [homeClass, setHomeClass] = useState('');
+  const [newEntryClass, setNewEntryClass] = useState('');
   const [resultClass, setResultClass] = useState('');
 
   useEffect(() => {
     switch (selected) {
-      case 'home':
-        setHomeClass(' bg-primary');
+      case 'newEntry':
+        setNewEntryClass(' bg-primary');
         setResultClass('');
         break;
 
       case 'results':
-        setHomeClass('');
+        setNewEntryClass('');
         setResultClass(' bg-primary');
         break;
 
       default:
-        setHomeClass('');
+        setNewEntryClass('');
         setResultClass('');
         break;
     }
@@ -32,7 +32,7 @@ const Navbar = ({ selected }: NavbarProps) => {
       <p className='text-xl font-bold tracking-tight'>Why, Journal?</p>
       <ul className='flex flex-wrap items-center justify-between gap-2'>
         <li>
-          <a href='/' className={homeClass}>
+          <a href='/' className={newEntryClass}>
             New Entry
           </a>
         </li>
