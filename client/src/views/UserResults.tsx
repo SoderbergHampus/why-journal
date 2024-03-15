@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import LineGraph from '../components/LineGraph';
 import UserCalendar from '../components/UserCalendar';
-import { Entry } from '../types';
-import Navbar from '../components/Navbar';
+import { Entry, ViewProps } from '../types';
 
-const UserResults = () => {
+const UserResults = ({ setSelectedView }: ViewProps) => {
+  useEffect(() => {
+    setSelectedView('results');
+  });
+
   const [entries, setEntries] = useState<Entry[]>();
 
   useEffect(() => {
@@ -17,25 +20,22 @@ const UserResults = () => {
   }, []);
 
   return (
-    <>
-      <Navbar selected='results' />
-      <>
-        <section className='section-view'>
-          <h1 data-testid='main-heading'>Your results</h1>
+    <main>
+      <section className='section-view'>
+        <h1 data-testid='main-heading'>Your results</h1>
 
-          {entries !== undefined && entries.length > 0 ? (
-            <UserCalendar entries={entries} />
-          ) : (
-            <></>
-          )}
-          {entries !== undefined && entries.length > 1 ? (
-            <LineGraph entries={entries} />
-          ) : (
-            <></>
-          )}
-        </section>
-      </>
-    </>
+        {entries !== undefined && entries.length > 0 ? (
+          <UserCalendar entries={entries} />
+        ) : (
+          <></>
+        )}
+        {entries !== undefined && entries.length > 1 ? (
+          <LineGraph entries={entries} />
+        ) : (
+          <></>
+        )}
+      </section>
+    </main>
   );
 };
 

@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  main {
+    @apply flex flex-1 justify-center px-10;
+  }
+
   h1 {
-    @apply text-4xl font-bold p-4 col-span-full;
+    @apply text-4xl font-bold my-4 col-span-full;
   }
   h2 {
     @apply text-2xl font-semibold mt-6 mb-2;
@@ -26,11 +30,11 @@
   }
 
   section {
-    @apply my-10 col-span-full mx-6;
+    @apply max-w-6xl w-full my-10 col-span-full;
   }
 
   .section-view {
-    @apply grid grid-cols-12 content-center;
+    @apply grid grid-cols-12;
   }
 
   .button {
@@ -65,15 +69,19 @@
   }
 
   .entry__section {
-    @apply col-span-full;
+    @apply col-span-full flex flex-col sm:flex-row sm:gap-4;
   }
 
-  .entries__container {
-    @apply max-w-sm col-start-3 flex flex-col gap-10 rounded bg-gray-semilight p-4;
+  .entry__container {
+    @apply min-w-40 max-w-20 flex flex-col gap-10 rounded bg-gray-semilight p-4;
   }
 
   .journal__container {
-    @apply max-w-sm col-span-9 col-start-3 break-normal rounded bg-gray-semilight p-4;
+    @apply min-w-40 break-normal rounded bg-gray-semilight p-4;
+  }
+
+  .entry-flex {
+    @apply flex flex-col;
   }
 }
 

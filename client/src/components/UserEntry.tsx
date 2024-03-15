@@ -6,34 +6,38 @@ export const UserEntry = () => {
 
   return (
     <>
-      <h1 className='col-span-10'>{entry.date}</h1>
+      <h1>{entry.date}</h1>
       <section className='entry__section'>
-        <h2 className='col-span-10 col-start-2'>Scores</h2>
-        <article className='entries__container'>
-          <div className='entry-prop__container'>
-            <p>Headache: </p>
-            <p>{entry.issue.score} </p>
-          </div>
+        <div className='entry-flex'>
+          <h2>Scores</h2>
+          <article className='entry__container'>
+            <div className='entry-prop__container'>
+              <p>Headache: </p>
+              <p>{entry.issue.score} </p>
+            </div>
 
-          <div className='entry-prop__container'>
-            <p>Sleep:</p>
-            <p>{entry.parameters[0].score}</p>
-          </div>
+            <div className='entry-prop__container'>
+              <p>Sleep:</p>
+              <p>{entry.parameters[0].score}</p>
+            </div>
 
-          <div className='entry-prop__container'>
-            <p>Diet:</p>
-            <p>{entry.parameters[1].score}</p>
-          </div>
+            <div className='entry-prop__container'>
+              <p>Diet:</p>
+              <p>{entry.parameters[1].score}</p>
+            </div>
 
-          <div className='entry-prop__container'>
-            <p>Stress:</p>
-            <p>{entry.parameters[2].score}</p>
-          </div>
-        </article>
+            <div className='entry-prop__container'>
+              <p>Stress:</p>
+              <p>{entry.parameters[2].score}</p>
+            </div>
+          </article>
+        </div>
 
-        <h2 className='col-span-10 col-start-2 mt-10'>Journal Entry</h2>
-        <div className='journal__container'>
-          <p>{entry.journalEntry}</p>
+        <div className='entry-flex'>
+          <h2>Journal Entry</h2>
+          <div className='journal__container'>
+            <p>{entry.journalEntry}</p>
+          </div>
         </div>
       </section>
     </>

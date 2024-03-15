@@ -14,3 +14,7 @@ export type Entry = {
 export type SliderInputs = {
   values: number[];
 };
+
+export type ViewProps = {
+  setSelectedView: (p: string) => void;
+};
