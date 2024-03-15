@@ -18,13 +18,19 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
         <>
           <section>
             <h2 className='col-span-full col-start-2'>Calendar Entries</h2>
-            <div className='col-span-10 col-start-2 grid max-h-96 grid-flow-col grid-cols-12 place-items-center overflow-scroll rounded bg-gray-semilight'>
-              <div className='col-span-full grid w-full grid-cols-5 place-items-center gap-1 py-4'>
-                <p className='col-start-1 text-xl font-medium'>Date</p>
-                <p className='col-start-2 text-xl font-medium'>Headache</p>
-                <p className='col-start-3 text-xl font-medium'>Sleep</p>
-                <p className='col-start-4 text-xl font-medium'>Diet</p>
-                <p className='col-start-5 text-xl font-medium'>Stress</p>
+            <div className='calendar__container'>
+              <div className='calendar__row'>
+                <p className='calendar__heading col-start-1'>Date</p>
+                <p className='calendar__heading col-start-2'>Headache</p>
+                <p className='calendar__heading display--wide col-start-3'>
+                  Sleep
+                </p>
+                <p className='calendar__heading display--wide col-start-4'>
+                  Diet
+                </p>
+                <p className='calendar__heading display--wide col-start-5'>
+                  Stress
+                </p>
               </div>
 
               {entriesCopy.map((entry) => (
@@ -35,7 +41,7 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
                       state: { date: entry.date, entry: entry },
                     })
                   }
-                  className='col-span-full grid w-full grid-cols-5 place-items-center gap-1 py-2 even:bg-gray-light'
+                  className={'calendar__row'}
                 >
                   <p>{entry.date}</p>
                   {entry.issue.score >= 70 ? (
@@ -43,9 +49,9 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
                   ) : (
                     <p className='text-red'>{entry.issue.score}</p>
                   )}
-                  <p>{entry.parameters[0].score}</p>
-                  <p>{entry.parameters[1].score}</p>
-                  <p>{entry.parameters[2].score}</p>
+                  <p className='display--wide'>{entry.parameters[0].score}</p>
+                  <p className='display--wide'>{entry.parameters[1].score}</p>
+                  <p className='display--wide'>{entry.parameters[2].score}</p>
                 </button>
                 // </div>
               ))}

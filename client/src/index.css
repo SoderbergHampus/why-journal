@@ -30,7 +30,7 @@
   }
 
   section {
-    @apply max-w-6xl w-full my-10 col-span-full;
+    @apply max-w-6xl w-full my-10 col-span-full mx-4;
   }
 
   .section-view {
@@ -82,6 +82,26 @@
 
   .entry-flex {
     @apply flex flex-col;
+  }
+
+  .calendar__container {
+    @apply max-h-96 grid grid-cols-2 place-items-center overflow-y-scroll rounded bg-gray-semilight sm:grid-cols-5;
+  }
+
+  .calendar__heading {
+    @apply text-xl font-medium;
+  }
+
+  .display--wide {
+    @apply hidden sm:block;
+  }
+
+  .calendar__row {
+    @apply col-span-full grid w-full grid-cols-2 sm:grid-cols-5 place-items-center gap-1 py-2 even:bg-gray-light;
+  }
+
+  .calendar__params {
+    @apply col-span-full grid w-full grid-cols-5 place-items-center gap-1 py-4;
   }
 }
 
