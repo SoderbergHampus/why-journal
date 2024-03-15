@@ -14,6 +14,7 @@ public class Entry {
     private int id;
 
     @Column
+    
     private String date;
 
     @Column
