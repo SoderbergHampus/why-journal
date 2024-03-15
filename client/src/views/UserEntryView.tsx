@@ -9,11 +9,9 @@ const UserEntryView = ({ setSelectedView }: ViewProps) => {
   });
 
   return (
-    <main>
-      <section className='section-view'>
-        <UserEntry />
-      </section>
-    </main>
+    <div className='view-container'>
+      <UserEntry />
+    </div>
   );
 };
 

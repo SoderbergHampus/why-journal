@@ -98,7 +98,7 @@ const JournalIssueForm = () => {
   console.log(submitMessage);
 
   return (
-    <section>
+    <article className='component-container'>
       <form onSubmit={handleSubmit}>
         <h2>Select date</h2>
         <DatePicker
@@ -112,17 +112,17 @@ const JournalIssueForm = () => {
 
         <h2>Main issue</h2>
 
-        <div className='div-container'>
+        <section className='section'>
           <label>Headache</label>
           <SliderInput
             sliderInputs={sliderInputs}
             setSliderInputs={setSliderInputs}
             index={0}
           />
-        </div>
+        </section>
 
         <h2>Parameters</h2>
-        <div className='div-container'>
+        <div className='section'>
           <label>Sleep</label>
           <SliderInput
             sliderInputs={sliderInputs}
@@ -150,7 +150,7 @@ const JournalIssueForm = () => {
           name=''
           id='journalEntry'
           defaultValue={''}
-          className='div-container h-80 w-full'
+          className='section textarea'
         ></textarea>
 
         <button type='submit' className='button'>
@@ -188,7 +188,7 @@ const JournalIssueForm = () => {
           Mock data
         </button>
       </form>
-    </section>
+    </article>
   );
 };
 

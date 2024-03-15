@@ -8,12 +8,10 @@ const NewEntry = ({ setSelectedView }: ViewProps) => {
   });
 
   return (
-    <main>
-      <section className='section-view'>
-        <h1 data-testid='main-heading'>Journal your day</h1>
-        <JournalIssueForm />
-      </section>
-    </main>
+    <div className='view-container'>
+      <h1 data-testid='main-heading'>Journal your day</h1>
+      <JournalIssueForm />
+    </div>
   );
 };
 

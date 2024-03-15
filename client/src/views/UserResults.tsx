@@ -20,22 +20,19 @@ const UserResults = ({ setSelectedView }: ViewProps) => {
   }, []);
 
   return (
-    <main>
-      <section className='section-view'>
-        <h1 data-testid='main-heading'>Your results</h1>
-
-        {entries !== undefined && entries.length > 0 ? (
-          <UserCalendar entries={entries} />
-        ) : (
-          <></>
-        )}
-        {entries !== undefined && entries.length > 1 ? (
-          <LineGraph entries={entries} />
-        ) : (
-          <></>
-        )}
-      </section>
-    </main>
+    <div className='view-container'>
+      <h1 data-testid='main-heading'>Your results</h1>
+      {entries !== undefined && entries.length > 0 ? (
+        <UserCalendar entries={entries} />
+      ) : (
+        <></>
+      )}
+      {entries !== undefined && entries.length > 1 ? (
+        <LineGraph entries={entries} />
+      ) : (
+        <></>
+      )}
+    </div>
   );
 };
 

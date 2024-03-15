@@ -6,6 +6,11 @@
   body {
     font-family: sans-serif;
   }
+
+  body {
+    @apply bg-section-dark text-primary;
+  }
+
   main {
     @apply flex flex-1 justify-center px-1;
   }
@@ -13,12 +18,40 @@
   h1 {
     @apply text-4xl font-bold mt-4 col-span-full;
   }
+
   h2 {
     @apply text-2xl font-semibold mt-6 mb-2;
   }
+
   h3 {
     @apply text-xl font-medium mt-4 mb-1;
   }
+
+  /* section {
+    @apply col-start-2 col-span-10;
+  } */
+
+  .view-container {
+    @apply grid grid-cols-12;
+  }
+
+  .component-container {
+    @apply col-start-2 col-span-10;
+  }
+
+  .section {
+    @apply rounded px-4 pt-2 bg-section;
+  }
+
+  .button-date {
+    @apply flex h-8 w-32 items-center justify-end hover:cursor-pointer rounded bg-section;
+  }
+
+  .textarea {
+    @apply h-80 w-full;
+  }
+
+  /*
   nav a {
     @apply rounded px-1 py-2 hover:bg-primary--hover;
   }
@@ -115,13 +148,11 @@
     @apply bg-slide;
   }
 
-  hr {
-    @apply my-10;
-  }
-}
-
-@layer components {
   .slider .range-slider__thumb[data-lower] {
     @apply w-0;
   }
+
+  hr {
+    @apply my-10;
+  } */
 }
