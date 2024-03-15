@@ -11,13 +11,13 @@ const Navbar = ({ selected }: NavbarProps) => {
   useEffect(() => {
     switch (selected) {
       case 'home':
-        setHomeClass(' bg-gray-medium');
+        setHomeClass(' bg-gray-light');
         setResultClass('');
         break;
 
       case 'results':
         setHomeClass('');
-        setResultClass(' bg-gray-medium');
+        setResultClass(' bg-gray-light');
         break;
 
       default:

@@ -33,7 +33,7 @@ const JournalIssueForm = () => {
   const [submitMessage, setSubmitMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [sliderInputs, setSliderInputs] = useState<SliderInputs>({
-    values: [50, 50, 50, 50],
+    values: [10, 10, 10, 10],
   });
   const [date, setDate] = useState(new Date());
 

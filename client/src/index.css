@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    font-family: 'EB Garamond', serif;
+  }
   main {
     @apply flex flex-1 justify-center px-10;
   }
@@ -46,7 +49,7 @@
   }
 
   .button-date {
-    @apply flex h-8 w-32 items-center justify-end;
+    @apply flex h-8 w-32 items-center justify-end hover:cursor-pointer;
   }
   .mock-input {
     @apply h-8 items-center;
@@ -73,7 +76,7 @@
   }
 
   .entry__container {
-    @apply min-w-40 max-w-20 flex flex-col gap-10 rounded bg-gray-semilight p-4;
+    @apply w-40 flex flex-col gap-4 rounded bg-gray-semilight p-4;
   }
 
   .journal__container {
