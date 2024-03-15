@@ -11,7 +11,7 @@ export const UserEntry = () => {
         <div className='entry-flex'>
           <h2>Scores</h2>
           <article className='entry__container'>
-            <div className='entry-prop__container'>
+            <div className='entry-prop__container font-bold'>
               <p>Headache: </p>
               <p>{entry.issue.score} </p>
             </div>
