@@ -10,7 +10,7 @@ export const UserEntry = () => {
       <section className='entry__section'>
         <div className='entry-flex'>
           <h2>Scores</h2>
-          <article className='entry__container'>
+          <article className='entry__container div-container'>
             <div className='entry-prop__container font-bold'>
               <p>Headache: </p>
               <p>{entry.issue.score} </p>
@@ -35,7 +35,7 @@ export const UserEntry = () => {
 
         <div className='entry-flex'>
           <h2>Journal Entry</h2>
-          <div className='journal__container'>
+          <div className='journal__container div-container'>
             <p>{entry.journalEntry}</p>
           </div>
         </div>

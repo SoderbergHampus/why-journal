@@ -86,8 +86,8 @@ const LineGraph = ({ entries }: LineGraphProps) => {
         ticktext: xText,
         tickangle: 50,
       },
-      plot_bgcolor: '#d4d4d8',
-      paper_bgcolor: '#d4d4d8',
+      plot_bgcolor: '#e4e4e7',
+      paper_bgcolor: '#e4e4e7',
       font: {
         color: '#09090b',
       },

@@ -4,14 +4,14 @@
 
 @layer base {
   body {
-    font-family: 'EB Garamond', serif;
+    font-family: sans-serif;
   }
   main {
-    @apply flex flex-1 justify-center px-10;
+    @apply flex flex-1 justify-center px-1;
   }
 
   h1 {
-    @apply text-4xl font-bold my-4 col-span-full;
+    @apply text-4xl font-bold mt-4 col-span-full;
   }
   h2 {
     @apply text-2xl font-semibold mt-6 mb-2;
@@ -20,7 +20,7 @@
     @apply text-xl font-medium mt-4 mb-1;
   }
   nav a {
-    @apply rounded px-4 py-2 hover:bg-gray-medium;
+    @apply rounded px-1 py-2 hover:bg-primary--hover;
   }
 
   nav {
@@ -33,7 +33,7 @@
   }
 
   section {
-    @apply max-w-6xl w-full my-10 col-span-full mx-4;
+    @apply max-w-6xl w-full my-10 col-span-10 col-start-2;
   }
 
   .section-view {
@@ -41,11 +41,11 @@
   }
 
   .button {
-    @apply rounded border p-2 bg-gray-semilight;
+    @apply rounded p-2 bg-primary;
   }
 
   .button:hover {
-    @apply bg-gray-medium;
+    @apply bg-primary--hover;
   }
 
   .button-date {
@@ -68,19 +68,19 @@
   }
 
   .div-container {
-    @apply rounded px-4 pt-2 bg-gray-semilight;
+    @apply rounded px-4 pt-2 bg-gray-light;
   }
 
   .entry__section {
-    @apply col-span-full flex flex-col sm:flex-row sm:gap-4;
+    @apply flex flex-col sm:flex-row sm:gap-4;
   }
 
   .entry__container {
-    @apply w-40 flex flex-col gap-4 rounded bg-gray-semilight p-4;
+    @apply w-40 flex flex-col gap-4 rounded p-4;
   }
 
   .journal__container {
-    @apply min-w-40 break-normal rounded bg-gray-semilight p-4;
+    @apply min-w-40 break-normal rounded p-4;
   }
 
   .entry-flex {
@@ -105,6 +105,18 @@
 
   .calendar__params {
     @apply col-span-full grid w-full grid-cols-5 place-items-center gap-1 py-4;
+  }
+
+  .slider .range-slider__range {
+    @apply bg-primary;
+  }
+
+  .slider .range-slider__thumb {
+    @apply bg-slide;
+  }
+
+  hr {
+    @apply my-10;
   }
 }
 

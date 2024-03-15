@@ -11,13 +11,13 @@ const Navbar = ({ selected }: NavbarProps) => {
   useEffect(() => {
     switch (selected) {
       case 'home':
-        setHomeClass(' bg-gray-light');
+        setHomeClass(' bg-primary');
         setResultClass('');
         break;
 
       case 'results':
         setHomeClass('');
-        setResultClass(' bg-gray-light');
+        setResultClass(' bg-primary');
         break;
 
       default:
@@ -30,10 +30,10 @@ const Navbar = ({ selected }: NavbarProps) => {
   return (
     <nav>
       <p className='text-xl font-bold tracking-tight'>Why, Journal?</p>
-      <ul className='flex flex-wrap items-center justify-between gap-4'>
+      <ul className='flex flex-wrap items-center justify-between gap-2'>
         <li>
           <a href='/' className={homeClass}>
-            Home
+            New Entry
           </a>
         </li>
         <li>

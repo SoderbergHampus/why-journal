@@ -6,6 +6,7 @@ import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import { mockToApi } from '../dataMock';
+import toast, { Toaster } from 'react-hot-toast';
 
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
   target: {
@@ -43,6 +44,8 @@ const JournalIssueForm = () => {
     const weights: number[] = e.target.weights.value.split(',').map((w) => +w);
     const n: number = e.target.n.value;
     mockToApi(n, weights);
+
+    toast.success('Data was mocked succesfully!');
   };
 
   useEffect(() => {
@@ -76,7 +79,7 @@ const JournalIssueForm = () => {
       setEntry(undefined);
       return;
     }
-
+    setSubmitMsg('Entry was added successfully!');
     setEntry({
       date: formatDate(date),
       issue: { name: 'headache', score: headacheScore },
@@ -87,7 +90,12 @@ const JournalIssueForm = () => {
       ],
       journalEntry: e.target.journalEntry.value,
     });
+
+    toast.success('Entry was added successfully!');
   };
+
+  console.log(errorMsg);
+  console.log(submitMessage);
 
   return (
     <section>
@@ -146,11 +154,11 @@ const JournalIssueForm = () => {
         ></textarea>
 
         <button type='submit' className='button'>
-          Submit
+          Add Entry
         </button>
       </form>
-      {submitMessage !== '' ? <h3>{submitMessage}</h3> : <h3>{errorMsg}</h3>}
 
+      <Toaster position='top-center' reverseOrder={false} />
       <hr />
       <h2>Mock data</h2>
       <form
