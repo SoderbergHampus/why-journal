@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @layer base {
+  /* ---------------------------------------------------------------------------
+  Global element styling */
   body {
     font-family: sans-serif;
   }
@@ -12,7 +14,7 @@
   }
 
   main {
-    @apply flex flex-1 justify-center px-1;
+    @apply mb-10 flex flex-1 justify-center px-1;
   }
 
   h1 {
@@ -27,15 +29,17 @@
     @apply text-xl font-medium mt-4 mb-1;
   }
 
-  /* section {
-    @apply col-start-2 col-span-10;
-  } */
-
-  .view-container {
-    @apply grid grid-cols-12;
+  input {
+    @apply rounded bg-section-dark;
   }
 
-  .component-container {
+  /* --------------------------------------------------------------------------- 
+  Sections and sub-sections */
+  .view {
+    @apply max-w-5xl w-full grid grid-cols-12;
+  }
+
+  .component {
     @apply col-start-2 col-span-10;
   }
 
@@ -43,12 +47,44 @@
     @apply rounded px-4 pt-2 bg-section;
   }
 
-  .button-date {
+  /* ---------------------------------------------------------------------------
+  Buttons and links */
+  .button {
+    @apply rounded p-2 bg-interact;
+  }
+
+  .button:hover {
+    @apply bg-interact-hover;
+  }
+
+  .button__date {
     @apply flex h-8 w-32 items-center justify-end hover:cursor-pointer rounded bg-section;
   }
 
+  /* ---------------------------------------------------------------------------
+  Inputs */
   .textarea {
     @apply h-80 w-full;
+  }
+
+  .mock-form {
+    @apply flex flex-wrap items-center gap-4 pb-2;
+  }
+
+  .mock-input {
+    @apply h-8 items-center px-2;
+  }
+
+  .mock-param-container {
+    @apply flex items-center gap-1;
+  }
+
+  .n {
+    @apply w-12;
+  }
+
+  .weights {
+    @apply w-24;
   }
 
   /*
@@ -73,27 +109,10 @@
     @apply grid grid-cols-12;
   }
 
-  .button {
-    @apply rounded p-2 bg-primary;
-  }
-
-  .button:hover {
-    @apply bg-primary--hover;
-  }
+  
 
   .button-date {
     @apply flex h-8 w-32 items-center justify-end hover:cursor-pointer;
-  }
-  .mock-input {
-    @apply h-8 items-center;
-  }
-
-  .n {
-    @apply w-14;
-  }
-
-  .weights {
-    @apply w-28;
   }
 
   .entry-prop__container {

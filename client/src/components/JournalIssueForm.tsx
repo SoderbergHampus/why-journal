@@ -98,7 +98,7 @@ const JournalIssueForm = () => {
   console.log(submitMessage);
 
   return (
-    <article className='component-container'>
+    <section className='component'>
       <form onSubmit={handleSubmit}>
         <h2>Select date</h2>
         <DatePicker
@@ -107,7 +107,7 @@ const JournalIssueForm = () => {
           onChange={(d) => d !== null && setDate(d)}
           dateFormat='yyyy-MM-dd'
           maxDate={new Date()}
-          className='button-date'
+          className='button__date'
         />
 
         <h2>Main issue</h2>
@@ -122,7 +122,7 @@ const JournalIssueForm = () => {
         </section>
 
         <h2>Parameters</h2>
-        <div className='section'>
+        <section className='section'>
           <label>Sleep</label>
           <SliderInput
             sliderInputs={sliderInputs}
@@ -143,7 +143,7 @@ const JournalIssueForm = () => {
             setSliderInputs={setSliderInputs}
             index={3}
           />
-        </div>
+        </section>
 
         <h2>Write about your day</h2>
         <textarea
@@ -159,23 +159,20 @@ const JournalIssueForm = () => {
       </form>
 
       <Toaster position='top-center' reverseOrder={false} />
-      <hr />
+
       <h2>Mock data</h2>
-      <form
-        onSubmit={handleMock}
-        className='mt-6 flex flex-wrap items-center gap-5'
-      >
-        <div>
+      <form onSubmit={handleMock} className='section mock-form'>
+        <div className='mock-param-container'>
           <label>Number of entries: </label>
           <input
-            type='number'
+            type='text'
             className='mock-input n'
             id='n'
-            defaultValue={'5'}
+            defaultValue={'15'}
           />
         </div>
 
-        <div>
+        <div className='mock-param-container'>
           <label>Weights:</label>
           <input
             id='weights'
@@ -188,7 +185,7 @@ const JournalIssueForm = () => {
           Mock data
         </button>
       </form>
-    </article>
+    </section>
   );
 };
 

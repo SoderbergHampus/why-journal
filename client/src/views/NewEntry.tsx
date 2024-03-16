@@ -8,7 +8,7 @@ const NewEntry = ({ setSelectedView }: ViewProps) => {
   });
 
   return (
-    <div className='view-container'>
+    <div className='view'>
       <h1 data-testid='main-heading'>Journal your day</h1>
       <JournalIssueForm />
     </div>
