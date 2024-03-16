@@ -10,6 +10,8 @@ module.exports = {
       'section-dark': '#619C87',
       interact: '#00A6C4',
       'interact-hover': '#00BCB7',
+      negative: '#fc0303',
+      positive: '#0042B0',
     },
   },
   plugins: [],

@@ -16,21 +16,15 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
     <>
       {entriesCopy !== undefined && (
         <>
-          <section>
+          <section className='component'>
             <h2 className='col-span-full col-start-2'>Calendar Entries</h2>
             <div className='calendar__container'>
               <div className='calendar__row'>
-                <p className='calendar__heading col-start-1'>Date</p>
-                <p className='calendar__heading col-start-2'>Headache</p>
-                <p className='calendar__heading display--wide col-start-3'>
-                  Sleep
-                </p>
-                <p className='calendar__heading display--wide col-start-4'>
-                  Diet
-                </p>
-                <p className='calendar__heading display--wide col-start-5'>
-                  Stress
-                </p>
+                <p className='calendar__heading'>Date</p>
+                <p className='calendar__heading'>Headache</p>
+                <p className='calendar__heading display-col--wide'>Sleep</p>
+                <p className='calendar__heading display-col--wide'>Diet</p>
+                <p className='calendar__heading display-col--wide'>Stress</p>
               </div>
 
               {entriesCopy.map((entry) => (
@@ -45,13 +39,19 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
                 >
                   <p>{entry.date}</p>
                   {entry.issue.score >= 70 ? (
-                    <p className='text-green'>{entry.issue.score}</p>
+                    <p className='text-positive'>{entry.issue.score}</p>
                   ) : (
-                    <p className='text-red'>{entry.issue.score}</p>
+                    <p className='text-negative'>{entry.issue.score}</p>
                   )}
-                  <p className='display--wide'>{entry.parameters[0].score}</p>
-                  <p className='display--wide'>{entry.parameters[1].score}</p>
-                  <p className='display--wide'>{entry.parameters[2].score}</p>
+                  <p className='display-col--wide'>
+                    {entry.parameters[0].score}
+                  </p>
+                  <p className='display-col--wide'>
+                    {entry.parameters[1].score}
+                  </p>
+                  <p className='display-col--wide'>
+                    {entry.parameters[2].score}
+                  </p>
                 </button>
                 // </div>
               ))}

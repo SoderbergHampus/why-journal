@@ -93,7 +93,6 @@
 
   /* ---------------------------------------------------------------------------
   Sliders */
-
   .slider {
     @apply bg-primary;
   }
@@ -150,6 +149,24 @@
 
   .link:hover {
     @apply text-interact;
+  }
+
+  /* ---------------------------------------------------------------------------
+  Calendar */
+  .calendar__container {
+    @apply max-h-96 overflow-y-scroll rounded bg-section;
+  }
+
+  .calendar__row {
+    @apply col-span-full grid w-full grid-cols-2 sm:grid-cols-5 place-items-center gap-1 py-2 even:bg-section-dark;
+  }
+
+  .calendar__heading {
+    @apply text-xl font-medium;
+  }
+
+  .display-col--wide {
+    @apply hidden sm:block;
   }
 
   /*
