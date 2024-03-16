@@ -29,41 +29,42 @@ export const formatDate = (date: Date): string => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
-export const addEntryToApi = (
-  entry: Entry,
-  setSubmitMsg?: (p: string) => void,
-  setErrorMsg?: (p: string) => void
-) => {
+export const addEntryToApi = (entry: Entry) => {
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(entry),
   };
 
-  if (setSubmitMsg !== undefined && setErrorMsg !== undefined) {
-    fetch('http://localhost:3000/api/journalEntries', options)
-      .then((response) => {
-        if (response.status === 201) {
-          setSubmitMsg('Your daily journal has been submitted!');
-          setErrorMsg('');
-        } else if (response.status === 404) {
-          setErrorMsg('Error when submitting message, incorrect submit input');
-          setSubmitMsg('');
-        }
-      })
-      .catch(() => {
-        setErrorMsg('Unknown error when submitting');
-        setSubmitMsg('');
-      });
-  } else {
+  return new Promise<string>((resolve, reject) => {
     fetch('http://localhost:3000/api/journalEntries', options)
       .then((response) => {
         if (response.status !== 201) {
-          throw Error('Something went wrong in POST-fetch');
+          reject(
+            `Failed to add entry, recieved status code ${response.status}`
+          );
+        } else {
+          resolve('Entry was added successfully');
         }
       })
       .catch(() => {
-        console.log('POST fetch rejected');
+        reject(
+          'Failed to add entry, likely an issue with the api. Try again later'
+        );
       });
-  }
+  });
+
+  // return fetch('http://localhost:3000/api/journalEntries', options)
+  //   .then((response) => {
+  //     if (response.status !== 201) {
+  //       return Error(
+  //         `Failed to add entry, recieved status code ${response.status}`
+  //       );
+  //     } else {
+  //       return 'Entry was added successfully';
+  //     }
+  //   })
+  //   .catch(() => {
+  //     return Error('Failed to add entry, unknown error');
+  //   });
 };

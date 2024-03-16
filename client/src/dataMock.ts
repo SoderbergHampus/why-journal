@@ -120,8 +120,19 @@ export const mockPostEntry = (entry: Entry): Promise<Response> => {
   });
 };
 
-export const mockToApi = (n: number, weights: number[]) => {
+export const mockToApi = (n: number, weights: number[]): Promise<string> => {
   const entries = generateMockData(n, weights);
+  return new Promise<string>((resolve, reject) => {
+    entries.forEach((entry) => {
+      addEntryToApi(entry)
+        .then((res) => resolve(res))
+        .catch((res) => reject(res));
+    });
+  });
 
-  entries.forEach((entry) => addEntryToApi(entry));
+  // if (error === undefined) {
+  //   return new Promise((resolve) => resolve('Mocked entries successfully'));
+  // } else {
+  //   return error;
+  // }
 };
