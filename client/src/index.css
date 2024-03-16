@@ -40,7 +40,7 @@
   }
 
   .component {
-    @apply col-start-2 col-span-10;
+    @apply col-span-full px-1 sm:col-start-2 sm:col-span-10 sm:px-0;
   }
 
   .section {
@@ -72,7 +72,7 @@
   }
 
   .section__mock-form {
-    @apply flex flex-col items-stretch gap-4;
+    @apply flex flex-col items-stretch;
   }
 
   .mock-input {
@@ -89,6 +89,25 @@
 
   .weights {
     @apply w-24;
+  }
+
+  /* ---------------------------------------------------------------------------
+  Sliders */
+
+  .slider {
+    @apply bg-primary;
+  }
+
+  .slider .range-slider__range {
+    @apply bg-interact;
+  }
+
+  .slider .range-slider__thumb {
+    @apply bg-interact;
+  }
+
+  .slider .range-slider__thumb[data-lower] {
+    @apply w-0;
   }
 
   /* ---------------------------------------------------------------------------
