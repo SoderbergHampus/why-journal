@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { PiList } from 'react-icons/pi';
 
 type NavbarProps = {
   selected: string;
@@ -45,16 +46,22 @@ const Navbar = ({ selected }: NavbarProps) => {
           </a>
         </article>
 
-        <article className='burger-menu'>
-          <button onClick={handleBurgerClick}>Burger</button>
+        <article
+          className={
+            burgerOpen ? 'burger-menu burger-menu--active' : 'burger-menu'
+          }
+        >
+          <button onClick={handleBurgerClick}>
+            <PiList size='2.5em' />
+          </button>
         </article>
       </nav>
       {burgerOpen && (
-        <div className='burger-menu--open'>
-          <a href='/' className='link burger-item'>
+        <div className='burger-menu-items'>
+          <a href='/' className='burger-item'>
             New Entry
           </a>
-          <a href='/myResults' className='link burger-item'>
+          <a href='/myResults' className='burger-item'>
             Results
           </a>
         </div>
