@@ -11,13 +11,13 @@ const Navbar = ({ selected }: NavbarProps) => {
   useEffect(() => {
     switch (selected) {
       case 'newEntry':
-        setNewEntryClass(' bg-primary');
+        setNewEntryClass('link--active');
         setResultClass('');
         break;
 
       case 'results':
         setNewEntryClass('');
-        setResultClass(' bg-primary');
+        setResultClass('link--active');
         break;
 
       default:
@@ -28,20 +28,16 @@ const Navbar = ({ selected }: NavbarProps) => {
   }, [selected]);
 
   return (
-    <nav>
-      <p className='text-xl font-bold tracking-tight'>Why, Journal?</p>
-      <ul className='flex flex-wrap items-center justify-between gap-2'>
-        <li>
-          <a href='/' className={newEntryClass}>
-            New Entry
-          </a>
-        </li>
-        <li>
-          <a href='/myResults' className={resultClass}>
-            Results
-          </a>
-        </li>
-      </ul>
+    <nav className='nav'>
+      <p className='logo'>Why, Journal?</p>
+      <article>
+        <a href='/' className={'link ' + newEntryClass}>
+          New Entry
+        </a>
+        <a href='/myResults' className={'link ' + resultClass}>
+          Results
+        </a>
+      </article>
     </nav>
   );
 };

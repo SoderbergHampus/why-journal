@@ -120,13 +120,16 @@ const JournalIssueForm = () => {
           />
         </section>
 
-        <h2>Write about your day</h2>
-        <textarea
-          name=''
-          id='journalEntry'
-          defaultValue={''}
-          className='section textarea'
-        ></textarea>
+        <h2>Entry</h2>
+        <section className='section'>
+          <textarea
+            name=''
+            id='journalEntry'
+            defaultValue={''}
+            className='textarea'
+            placeholder='Write about your day...'
+          ></textarea>
+        </section>
 
         <button type='submit' className='button'>
           Add Entry
@@ -136,26 +139,29 @@ const JournalIssueForm = () => {
       <Toaster position='top-center' reverseOrder={false} />
 
       <h2>Mock data</h2>
-      <form onSubmit={handleMock} className='section mock-form'>
-        <div className='mock-param-container'>
-          <label>Number of entries: </label>
-          <input
-            type='text'
-            className='mock-input n'
-            id='n'
-            defaultValue={'15'}
-          />
-        </div>
 
-        <div className='mock-param-container'>
-          <label>Weights:</label>
-          <input
-            id='weights'
-            type='text'
-            className='mock-input weights'
-            defaultValue={'0.8,0.4,0.2'}
-          />
-        </div>
+      <form onSubmit={handleMock}>
+        <section className='section section__mock-form'>
+          <div className='mock-param-container'>
+            <label>Number of entries: </label>
+            <input
+              type='text'
+              className='mock-input n'
+              id='n'
+              defaultValue={'15'}
+            />
+          </div>
+
+          <div className='mock-param-container'>
+            <label>Weights:</label>
+            <input
+              id='weights'
+              type='text'
+              className='mock-input weights'
+              defaultValue={'0.8,0.4,0.2'}
+            />
+          </div>
+        </section>
         <button className='button' type='submit'>
           Mock data
         </button>
