@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { mockToApi } from '../dataMock';
 import toast, { Toaster } from 'react-hot-toast';
+import { PiCalendarDuotone } from 'react-icons/pi';
 
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
   target: {
@@ -76,14 +77,16 @@ const JournalIssueForm = () => {
     <section className='component'>
       <form onSubmit={handleSubmit}>
         <h2>Select date</h2>
-        <DatePicker
-          showIcon
-          selected={date}
-          onChange={(d) => d !== null && setDate(d)}
-          dateFormat='yyyy-MM-dd'
-          maxDate={new Date()}
-          className='button__date'
-        />
+        <div className='grid h-10 w-16 grid-cols-2 place-content-center items-center rounded-l bg-section pl-2'>
+          <PiCalendarDuotone size={'full'} className='col-start-1' />
+          <DatePicker
+            selected={date}
+            onChange={(d) => d !== null && setDate(d)}
+            dateFormat='yyyy-MM-dd'
+            maxDate={new Date()}
+            className='button__date'
+          />
+        </div>
 
         <h2>Main issue</h2>
 

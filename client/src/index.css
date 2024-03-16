@@ -58,18 +58,14 @@
   }
 
   .button__date {
-    @apply flex h-8 w-32 items-center justify-end hover:cursor-pointer rounded bg-section;
+    @apply hover:cursor-pointer w-24 bg-section py-2 rounded-r border-none outline-none;
   }
 
   /* ---------------------------------------------------------------------------
   Inputs */
   .textarea {
-    @apply h-80 w-full rounded resize-none border-none outline-none mt-2 p-2 bg-section;
+    @apply h-80 w-full rounded resize-none border-none outline-none mt-2 bg-section;
   }
-
-  /* .textarea:focus {
-    @apply ;
-  } */
 
   .textarea::placeholder {
     @apply text-primary;
@@ -98,11 +94,27 @@
   /* ---------------------------------------------------------------------------
   Navigation */
   .nav {
-    @apply flex justify-between items-center py-6;
+    @apply flex justify-between items-center py-6 bg-section;
   }
 
   .logo {
     @apply text-3xl font-bold tracking-tight px-4;
+  }
+
+  .links__nav {
+    @apply hidden sm:block;
+  }
+
+  .burger-menu {
+    @apply sm:hidden px-4;
+  }
+
+  .burger-menu--open {
+    @apply sm:hidden flex flex-col items-end px-4 bg-interact divide-y;
+  }
+
+  .burger-item {
+    @apply w-full text-right py-2;
   }
 
   /* .nav__link-container {
