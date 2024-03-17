@@ -78,6 +78,12 @@ const LineGraph = ({ entries }: LineGraphProps) => {
 
     plotLayout = {
       autosize: true,
+      margin: {
+        l: 40,
+        r: 10,
+        b: 80,
+        t: 10,
+      },
       yaxis: { range: [-10, 110], title: 'Score' },
       xaxis: {
         title: 'Date',
@@ -86,10 +92,10 @@ const LineGraph = ({ entries }: LineGraphProps) => {
         ticktext: xText,
         tickangle: 50,
       },
-      plot_bgcolor: '#e4e4e7',
-      paper_bgcolor: '#e4e4e7',
+      plot_bgcolor: '#00CFA0',
+      paper_bgcolor: '#00CFA0',
       font: {
-        color: '#09090b',
+        color: '#E8FEF5',
       },
       showlegend: true,
       legend: {
@@ -104,12 +110,12 @@ const LineGraph = ({ entries }: LineGraphProps) => {
   }
   return (
     <>
-      <section>
+      <section className='component'>
         <h2>Issue and parameter scores</h2>
         {entries !== undefined &&
           plotData !== undefined &&
           plotLayout !== undefined && (
-            <div className='div-container pb-2' id='plot__section'>
+            <div className='rounded bg-section p-1' id='plot__section'>
               <Plot
                 data={plotData}
                 layout={plotLayout}
