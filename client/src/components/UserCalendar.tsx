@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Entry } from '../types';
+import { useEffect, useState } from 'react';
 
 type UserCalendarProps = {
   entries: Entry[] | undefined;
@@ -7,10 +8,25 @@ type UserCalendarProps = {
 
 const UserCalendar = ({ entries }: UserCalendarProps) => {
   const navigate = useNavigate();
-  let entriesCopy;
-  entries !== undefined ? (entriesCopy = [...entries]) : undefined;
-  entriesCopy !== undefined &&
-    entriesCopy.sort((a, b) => b.date.localeCompare(a.date));
+  const [showAll, setShowAll] = useState(false);
+  const [entriesCopy, setEntriesCopy] = useState<Entry[]>();
+
+  const handleShowAll = () => {
+    setShowAll(!showAll);
+  };
+
+  useEffect(() => {
+    if (entries !== undefined) {
+      let entriesSorted = [...entries];
+      entriesSorted = entriesSorted.sort((a, b) =>
+        b.date.localeCompare(a.date)
+      );
+
+      showAll
+        ? setEntriesCopy(entriesSorted)
+        : setEntriesCopy(entriesSorted.slice(0, 10));
+    }
+  }, [showAll, entries]);
 
   return (
     <>
@@ -53,9 +69,19 @@ const UserCalendar = ({ entries }: UserCalendarProps) => {
                     {entry.parameters[2].score}
                   </p>
                 </button>
-                // </div>
               ))}
             </div>
+            {entries !== undefined && entries.length > 10 && showAll && (
+              <button className='button' onClick={handleShowAll}>
+                Show Less
+              </button>
+            )}
+
+            {entries !== undefined && entries.length > 10 && !showAll && (
+              <button className='button' onClick={handleShowAll}>
+                Show All
+              </button>
+            )}
           </section>
         </>
       )}

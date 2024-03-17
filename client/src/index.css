@@ -154,7 +154,7 @@
   /* ---------------------------------------------------------------------------
   Calendar */
   .calendar__container {
-    @apply max-h-96 overflow-y-scroll rounded bg-section;
+    @apply rounded bg-section;
   }
 
   .calendar__row {
