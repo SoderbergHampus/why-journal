@@ -58,7 +58,7 @@ const Navbar = ({ selected }: NavbarProps) => {
       </nav>
       {burgerOpen && (
         <div className='burger-menu-items'>
-          <a href='/' className='burger-item'>
+          <a href='/' className={'burger-item ' + newEntryClass}>
             New Entry
           </a>
           <a href='/myResults' className='burger-item'>

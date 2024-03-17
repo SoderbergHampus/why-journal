@@ -144,7 +144,7 @@
   }
 
   .link--active {
-    @apply border-b-4 border-primary rounded-b;
+    @apply sm:border-b-4 border-primary rounded-b;
   }
 
   .link:hover {
