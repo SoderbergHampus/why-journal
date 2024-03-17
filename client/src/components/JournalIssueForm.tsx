@@ -77,14 +77,15 @@ const JournalIssueForm = () => {
     <section className='component'>
       <form onSubmit={handleSubmit}>
         <h2>Select date</h2>
-        <div className='grid h-10 w-16 grid-cols-2 place-content-center items-center rounded-l bg-section pl-2'>
-          <PiCalendarDuotone size={'full'} className='col-start-1' />
+        <div className='date-selector'>
+          <PiCalendarDuotone size={'2em'} className='col-start-1 pr-2' />
           <DatePicker
             selected={date}
             onChange={(d) => d !== null && setDate(d)}
             dateFormat='yyyy-MM-dd'
             maxDate={new Date()}
-            className='button__date'
+            popperPlacement='bottom-start'
+            className='button__date-selector'
           />
         </div>
 

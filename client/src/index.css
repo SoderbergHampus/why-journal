@@ -57,12 +57,16 @@
     @apply bg-interact-hover;
   }
 
-  .button__date {
+  /* ---------------------------------------------------------------------------
+  Inputs */
+  .date-selector {
+    @apply grid h-10 w-16 grid-cols-2 place-content-center items-center rounded-l bg-section pl-2;
+  }
+
+  .button__date-selector {
     @apply hover:cursor-pointer w-24 bg-section py-2 rounded-r border-none outline-none;
   }
 
-  /* ---------------------------------------------------------------------------
-  Inputs */
   .textarea {
     @apply h-80 w-full rounded resize-none border-none outline-none mt-2 bg-section;
   }
