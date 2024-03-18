@@ -1,14 +1,25 @@
 import { Data, Layout } from 'plotly.js';
-import { Entry } from '../types';
+// import { Entry } from '../types';
 import Plot from 'react-plotly.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../state/store';
+import { refresh } from '../state/entries/entriesSlice';
+import { useEffect } from 'react';
 
-type LineGraphProps = {
-  entries: Entry[] | undefined;
-};
+// type LineGraphProps = {
+//   entries: Entry[] | undefined;
+// };
 
-const LineGraph = ({ entries }: LineGraphProps) => {
+const LineGraph = () => {
   let plotData: Data[] | undefined;
   let plotLayout: Partial<Layout> | undefined;
+
+  const entries = useSelector((state: RootState) => state.entries.entries);
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
 
   if (entries !== undefined) {
     // Define plot params

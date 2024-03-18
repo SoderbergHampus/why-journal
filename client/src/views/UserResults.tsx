@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import LineGraph from '../components/LineGraph';
 import UserCalendar from '../components/UserCalendar';
 import { Entry, ViewProps } from '../types';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../state/store';
-import { refresh } from '../state/entries/entriesSlice';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { AppDispatch, RootState } from '../state/store';
+// import { refresh } from '../state/entries/entriesSlice';
 
 const UserResults = ({ setSelectedView }: ViewProps) => {
   useEffect(() => {
@@ -27,17 +27,8 @@ const UserResults = ({ setSelectedView }: ViewProps) => {
     <div className='view'>
       <h1 data-testid='main-heading'>Your results</h1>
 
-      {entries !== undefined && entries.length > 1 ? (
-        <LineGraph entries={entries} />
-      ) : (
-        <></>
-      )}
-
-      {entries !== undefined && entries.length > 0 ? (
-        <UserCalendar entries={entries} />
-      ) : (
-        <></>
-      )}
+      <LineGraph />
+      {/* <UserCalendar /> */}
     </div>
   );
 };
