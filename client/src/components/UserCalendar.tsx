@@ -3,15 +3,15 @@ import { Entry } from '../types';
 import { useEffect, useState } from 'react';
 
 import './UserCalendar.css';
+import { useSelector } from 'react-redux';
+import { RootState } from '../state/store';
 
-type UserCalendarProps = {
-  entries: Entry[] | undefined;
-};
-
-const UserCalendar = ({ entries }: UserCalendarProps) => {
+const UserCalendar = () => {
   const navigate = useNavigate();
   const [showAll, setShowAll] = useState(false);
   const [entriesCopy, setEntriesCopy] = useState<Entry[]>();
+
+  const entries = useSelector((state: RootState) => state.entries.values);
 
   const handleShowAll = () => {
     setShowAll(!showAll);

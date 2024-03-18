@@ -3,11 +3,11 @@ import { Entry } from '../../types';
 import { fetchEntries } from '../../api';
 
 interface EntriesState {
-  entries: Entry[];
+  values: Entry[];
 }
 
 const initialState: EntriesState = {
-  entries: [],
+  values: [],
 };
 
 const entriesSlice = createSlice({
@@ -21,7 +21,7 @@ const entriesSlice = createSlice({
       })
       .addCase(refresh.fulfilled, (state, action: PayloadAction<Entry[]>) => {
         console.log('Fetch of entries complete!');
-        state.entries = action.payload;
+        state.values = action.payload;
       });
   },
 });
