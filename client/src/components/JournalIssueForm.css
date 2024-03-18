@@ -1,0 +1,61 @@
+@tailwind base;
+
+@layer base {
+  /* ---------------------------------------------------------------------------
+  Input */
+  .date-selector {
+    @apply grid h-10 w-16 grid-cols-2 place-content-center items-center rounded-l bg-section pl-2;
+  }
+
+  .button__date-selector {
+    @apply hover:cursor-pointer w-24 bg-section py-2 rounded-r border-none outline-none;
+  }
+
+  .section__mock-form {
+    @apply flex flex-col items-stretch;
+  }
+
+  .mock-input {
+    @apply h-8 items-center px-2;
+  }
+
+  .mock-param-container {
+    @apply flex justify-between items-center gap-1 my-2;
+  }
+
+  .n {
+    @apply w-12;
+  }
+
+  .weights {
+    @apply w-24;
+  }
+
+  /* ---------------------------------------------------------------------------
+  textarea */
+  .textarea {
+    @apply h-80 w-full rounded resize-none border-none outline-none mt-2 bg-section;
+  }
+
+  .textarea::placeholder {
+    @apply text-primary;
+  }
+
+  /* ---------------------------------------------------------------------------
+  Sliders */
+  .slider {
+    @apply bg-primary;
+  }
+
+  .slider .range-slider__range {
+    @apply bg-interact;
+  }
+
+  .slider .range-slider__thumb {
+    @apply bg-interact;
+  }
+
+  .slider .range-slider__thumb[data-lower] {
+    @apply w-0;
+  }
+}

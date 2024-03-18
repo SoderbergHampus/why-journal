@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Entry } from '../types';
 import { useEffect, useState } from 'react';
 
+import './UserCalendar.css';
+
 type UserCalendarProps = {
   entries: Entry[] | undefined;
 };

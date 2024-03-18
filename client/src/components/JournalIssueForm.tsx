@@ -9,6 +9,8 @@ import { mockToApi } from '../dataMock';
 import toast, { Toaster } from 'react-hot-toast';
 import { PiCalendarDuotone } from 'react-icons/pi';
 
+import './JournalIssueForm.css';
+
 type JournalIssueFormEvent = FormEvent<HTMLFormElement> & {
   target: {
     headacheInput: { value: string };

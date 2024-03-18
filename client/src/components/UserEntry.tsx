@@ -1,5 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
+import './UserEntry.css';
+
 export const UserEntry = () => {
   const location = useLocation();
   const entry = location.state.entry;

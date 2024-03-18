@@ -1,0 +1,21 @@
+@tailwind base;
+
+@layer base {
+  /* ---------------------------------------------------------------------------
+  User entry */
+  .entry-flex {
+    @apply flex flex-col;
+  }
+
+  .entry__container {
+    @apply w-40 flex flex-col gap-4 rounded p-4;
+  }
+
+  .entry-prop {
+    @apply flex flex-wrap justify-between;
+  }
+
+  .component-entry--wide {
+    @apply sm:flex sm:gap-6;
+  }
+}

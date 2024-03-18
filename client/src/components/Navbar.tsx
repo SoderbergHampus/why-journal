@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { PiList } from 'react-icons/pi';
 
+import './NavBar.css';
+
 type NavbarProps = {
   selected: string;
 };
