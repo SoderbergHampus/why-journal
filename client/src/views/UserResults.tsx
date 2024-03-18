@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../state/store';
 import { refresh } from '../state/entries/entriesSlice';
 import UserCalendar from '../components/UserCalendar';
+import { navSelect } from '../state/nav/navSlice';
 
 const UserResults = ({ setSelectedView }: ViewProps) => {
   useEffect(() => {
@@ -15,6 +16,7 @@ const UserResults = ({ setSelectedView }: ViewProps) => {
 
   useEffect(() => {
     dispatch(refresh());
+    dispatch(navSelect('results'));
   }, [dispatch]);
 
   return (

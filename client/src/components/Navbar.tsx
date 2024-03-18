@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { PiList } from 'react-icons/pi';
 
 import './NavBar.css';
+import { useSelector } from 'react-redux';
+import { RootState } from '../state/store';
 
-type NavbarProps = {
-  selected: string;
-};
-
-const Navbar = ({ selected }: NavbarProps) => {
+const Navbar = () => {
   const [newEntryClass, setNewEntryClass] = useState('');
   const [resultClass, setResultClass] = useState('');
   const [burgerOpen, setBurgerOpen] = useState(false);
+
+  const selected = useSelector<RootState>((state) => state.navSelect.value);
 
   useEffect(() => {
     switch (selected) {

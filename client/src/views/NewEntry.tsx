@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
 import JournalIssueForm from '../components/JournalIssueForm';
-import { ViewProps } from '../types';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../state/store';
+import { useEffect } from 'react';
+import { navSelect } from '../state/nav/navSlice';
 
-const NewEntry = ({ setSelectedView }: ViewProps) => {
+const NewEntry = () => {
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    setSelectedView('newEntry');
-  });
+    dispatch(navSelect('newEntry'));
+  }, [dispatch]);
 
   return (
     <div className='view'>
