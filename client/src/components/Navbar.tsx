@@ -10,7 +10,7 @@ const Navbar = () => {
   const [resultClass, setResultClass] = useState('');
   const [burgerOpen, setBurgerOpen] = useState(false);
 
-  const selected = useSelector<RootState>((state) => state.navSelect.value);
+  const selected = useSelector((state: RootState) => state.navSelect.value);
 
   useEffect(() => {
     switch (selected) {

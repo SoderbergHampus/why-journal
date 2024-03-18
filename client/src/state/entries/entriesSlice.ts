@@ -26,9 +26,12 @@ const entriesSlice = createSlice({
   },
 });
 
-export const refresh = createAsyncThunk('entries/refresh', async () => {
-  const entries = await fetchEntries();
-  return entries;
-});
+export const refresh = createAsyncThunk(
+  'entries/refresh',
+  async (): Promise<Entry[]> => {
+    const entries = await fetchEntries();
+    return entries;
+  }
+);
 
 export default entriesSlice.reducer;
