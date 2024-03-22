@@ -2,15 +2,21 @@ debug: true
 server:
   port: 3000
 
+BASE_URL: ${BASE_URL}
+
 spring:
+  config:
+    import:
+      optional:file:.env[.properties]
+
   application:
     name: why-journal-api
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/whyJournal
-    username: user
-    password: secret
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
   jpa:
     show-sql: true

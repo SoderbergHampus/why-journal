@@ -14,7 +14,6 @@ public class Entry {
     private int id;
 
     @Column
-    
     private String date;
 
     @Column
@@ -35,12 +34,8 @@ public class Entry {
     // Constructors
     public Entry() {}
 
-    public Entry(String date,
-                 String issue,
-                 int issueScore,
-                 String parameters,
-                 String parameterScores,
-                 String journalEntry) {
+    public Entry(String date, String issue, int issueScore, String parameters,
+                 String parameterScores, String journalEntry) {
         this.date = date;
         this.issue = issue;
         this.issueScore = issueScore;
@@ -92,15 +87,11 @@ public class Entry {
 
     public List<Integer> getParameterScores() {
         List<String> listScores = List.of(parameterScores.split(","));
-        return listScores.stream()
-                .map(Integer::parseInt)
-                .toList();
+        return listScores.stream().map(Integer::parseInt).toList();
     }
 
     public void setParameterScores(List<Integer> parameterScores) {
-        List<String> stringList = parameterScores.stream()
-                .map(String::valueOf)
-                .toList();
+        List<String> stringList = parameterScores.stream().map(String::valueOf).toList();
         this.parameterScores = String.join(",", stringList);
     }
 
@@ -122,8 +113,7 @@ public class Entry {
             return false;
         Entry entry = (Entry) o;
         return id == entry.id && issueScore == entry.issueScore &&
-                Objects.equals(date, entry.date) &&
-                Objects.equals(issue, entry.issue) &&
+                Objects.equals(date, entry.date) && Objects.equals(issue, entry.issue) &&
                 Objects.equals(parameters, entry.parameters) &&
                 Objects.equals(parameterScores, entry.parameterScores) &&
                 Objects.equals(journalEntry, entry.journalEntry);
@@ -136,14 +126,9 @@ public class Entry {
 
     @Override
     public String toString() {
-        return "Entry{" +
-                "id=" + id +
-                ", date='" + date + '\'' +
-                ", issue='" + issue + '\'' +
-                ", issueScore=" + issueScore +
-                ", parameters='" + parameters + '\'' +
-                ", parameterScores='" + parameterScores + '\'' +
-                ", journalEntry='" + journalEntry + '\'' +
-                '}';
+        return "Entry{" + "id=" + id + ", date='" + date + '\'' + ", issue='" + issue + '\'' +
+                ", issueScore=" + issueScore + ", parameters='" + parameters + '\'' +
+                ", parameterScores='" + parameterScores + '\'' + ", journalEntry='" + journalEntry +
+                '\'' + '}';
     }
 }

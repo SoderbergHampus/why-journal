@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/journalEntries")
+@RequestMapping("${BASE_URL}")
 @CrossOrigin
 public class whyJournalController {
 
@@ -33,7 +33,7 @@ public class whyJournalController {
     public ResponseEntity<EntryDTO> addEntry(RequestEntity<EntryDTO> request) {
         if (request.getBody() != null) {
             Entry entry = EntryDTO.toEntry(request.getBody());
-            return ResponseEntity.created(URI.create("/api/journalEntries/" + entry.getId()))
+            return ResponseEntity.created(URI.create(request.getUrl().getPath() + entry.getId()))
                     .body(EntryDTO.fromEntry(service.addEntry(entry)));
         } else {
             throw new IllegalArgumentException("Empty POST request");
