@@ -1,5 +1,7 @@
 import { Entry } from './types';
 
+const ENTRIES_URL = import.meta.env.VITE_ENTRIES_URL;
+
 /**
  * Function to get current date.
  * @returns Current date in format 'yyyy-mm-dd'
@@ -30,9 +32,7 @@ export const formatDate = (date: Date): string => {
 };
 
 export const fetchEntries = async () => {
-  const response: Response = await fetch(
-    'http://localhost:3000/api/journalEntries'
-  );
+  const response: Response = await fetch(ENTRIES_URL);
   const responseJson: Promise<Entry[]> = await response.json();
   return responseJson;
 };
@@ -45,7 +45,7 @@ export const addEntryToApi = (entry: Entry) => {
   };
 
   return new Promise<string>((resolve, reject) => {
-    fetch('http://localhost:3000/api/journalEntries', options)
+    fetch(ENTRIES_URL, options)
       .then((response) => {
         if (response.status !== 201) {
           reject(
