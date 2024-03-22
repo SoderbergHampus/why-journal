@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Entry } from '../../types';
-import { fetchEntries } from '../../api';
+import { fetchEntries } from '../../globalFuntions';
 
 interface EntriesState {
   values: Entry[];

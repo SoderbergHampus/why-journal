@@ -31,13 +31,13 @@ export const formatDate = (date: Date): string => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
-export const fetchEntries = async () => {
+export const fetchEntries = async (): Promise<Entry[]> => {
   const response: Response = await fetch(ENTRIES_URL);
   const responseJson: Promise<Entry[]> = await response.json();
   return responseJson;
 };
 
-export const addEntryToApi = (entry: Entry) => {
+export const addEntryToApi = (entry: Entry): Promise<string> => {
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -61,18 +61,4 @@ export const addEntryToApi = (entry: Entry) => {
         );
       });
   });
-
-  // return fetch('http://localhost:3000/api/journalEntries', options)
-  //   .then((response) => {
-  //     if (response.status !== 201) {
-  //       return Error(
-  //         `Failed to add entry, recieved status code ${response.status}`
-  //       );
-  //     } else {
-  //       return 'Entry was added successfully';
-  //     }
-  //   })
-  //   .catch(() => {
-  //     return Error('Failed to add entry, unknown error');
-  //   });
 };

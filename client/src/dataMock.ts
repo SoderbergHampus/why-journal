@@ -1,5 +1,5 @@
 import { loremIpsum } from 'lorem-ipsum';
-import { addEntryToApi } from './api';
+import { addEntryToApi } from './globalFuntions';
 import { Entry, TrackedData } from './types';
 
 // Helper function for random

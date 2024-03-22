@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { Entry, SliderInputs } from '../types';
 import SliderInput from './SliderInput';
-import { addEntryToApi, formatDate } from '../api';
+import { addEntryToApi, formatDate } from '../globalFuntions';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
