@@ -1,6 +1,6 @@
 import { Entry } from './types';
 
-const ENTRIES_URL = import.meta.env.VITE_ENTRIES_URL;
+const ENTRIES_URL = 'https://why-journal.azurewebsites.net/api/journalEntries';
 
 /**
  * Function to get current date.
