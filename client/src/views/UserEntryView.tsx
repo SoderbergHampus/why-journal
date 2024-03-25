@@ -1,12 +1,15 @@
 // import Navbar from '../components/Navbar';
 import { useEffect } from 'react';
 import { UserEntry } from '../components/UserEntry';
-import { ViewProps } from '../types';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../state/store';
+import { navSelect } from '../state/nav/navSlice';
 
-const UserEntryView = ({ setSelectedView }: ViewProps) => {
+const UserEntryView = () => {
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    setSelectedView('results');
-  });
+    dispatch(navSelect('newEntry'));
+  }, [dispatch]);
 
   return (
     <div className='view'>

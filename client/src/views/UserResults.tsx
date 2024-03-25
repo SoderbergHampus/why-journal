@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import LineGraph from '../components/LineGraph';
-import { Entry, ViewProps } from '../types';
+import { Entry } from '../types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../state/store';
 import { refresh } from '../state/entries/entriesSlice';
 import UserCalendar from '../components/UserCalendar';
 import { navSelect } from '../state/nav/navSlice';
 
-const UserResults = ({ setSelectedView }: ViewProps) => {
+const UserResults = () => {
+  const dispatchView = useDispatch<AppDispatch>();
   useEffect(() => {
-    setSelectedView('results');
-  });
+    dispatchView(navSelect('newEntry'));
+  }, [dispatchView]);
 
   const entries: Entry[] = useSelector(
     (state: RootState) => state.entries.values
