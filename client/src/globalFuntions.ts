@@ -3,7 +3,7 @@ import { Entry } from './types';
 const ENTRIES_URL = import.meta.env.VITE_ENTRIES_URL;
 
 /**
- * Function to get current date..
+ * Function to get current date.
  * @returns Current date in format 'yyyy-mm-dd'
  */
 export const getCurrentDate = (): string => {
