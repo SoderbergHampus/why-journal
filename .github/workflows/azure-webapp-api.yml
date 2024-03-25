@@ -27,7 +27,7 @@ env:
 on:
   push:
     branches: ['main']
-    paths: ['backend/**']
+    paths: ['api/**']
   workflow_dispatch:
 
 permissions:
@@ -50,7 +50,7 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven
-        run: cd backend && mvn clean install
+        run: cd api && mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
